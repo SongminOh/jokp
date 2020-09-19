@@ -4,7 +4,7 @@ public class UsersVO {
 	private String user_id;
 	private String pw;
 	private String name;
-	private String age;
+	private int age;
 	private String job;
 	private String preference;
 	private String set_time;
@@ -13,7 +13,7 @@ public class UsersVO {
 	public UsersVO() {
 	}
 	
-	public UsersVO(String user_id, String pw, String name, String age, String job, String preference, String set_time) {
+	public UsersVO(String user_id, String pw, String name, int age, String job, String preference, String set_time) {
 		this.user_id = user_id;
 		this.pw = pw;
 		this.name = name;
@@ -40,10 +40,10 @@ public class UsersVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 	public String getJob() {

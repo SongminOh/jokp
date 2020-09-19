@@ -50,13 +50,14 @@ public class StorageDAO {
 		public int storageInsert(StorageVO vo) {
 			conn = getConn();
 			int cnt = 0;
-			String sql = "insert into storage values(?,?,?,?)";
+			String sql = "insert into storage values(?,?,?,?,?)";
 			try {
 				pst = conn.prepareStatement(sql);
 				pst.setString(1, vo.getUser_id());
 				pst.setString(2, vo.getMedia_id());
-				pst.setString(3, vo.getPlaytime());
+				pst.setTimestamp(3, vo.getPlaytime());
 				pst.setLong(4, vo.getUpcheck());
+				pst.setTimestamp(5, vo.getVisit_time());
 
 				cnt = pst.executeUpdate();
 				
