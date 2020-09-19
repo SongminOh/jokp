@@ -5,12 +5,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class MediaDAO {
-	// 영상id로 영상의 모든 정보 가져오기
-	// 좋아요나 싫어요 눌렀을때 올라가는거
-	// 조회수 올라가는거
-	// 키워드 기반 검색
+	// 영상id로 영상의 모든 정보 가져오기 : mediainfoList
+	// 좋아요나 싫어요 눌렀을때 올라가는거 : upcntUpdate, downcntUpdate
+	// 조회수 올라가는거 : viewcntUpdate
+	// 키워드 기반 검색 :
 	
 	private Connection conn;
 	private PreparedStatement pst;
@@ -41,7 +44,99 @@ public class MediaDAO {
 
 	}
 	
-	
+	//****영상 id로 정보 보기 기능****
+			public ArrayList<MediaVO> mediainfoList(String media_id) {
+				ArrayList<MediaVO> list = new ArrayList<MediaVO>();
+				conn = getConn();
+				String sql = "select * from media where media_id = ?";
+				try {
+					pst = conn.prepareStatement(sql);
+					pst.setString(1, media_id);
+					rs = pst.executeQuery();
+					while (rs.next()) {
+						
+						media_id = rs.getString(1);
+						String title = rs.getString(2);
+						String channel = rs.getString(3);
+						int up = rs.getInt(4);
+						int down = rs.getInt(5);
+						int views = rs.getInt(6);
+						Timestamp running_time = rs.getTimestamp(7);
+						Date dates = rs.getDate(8);
+						String hashtag = rs.getString(9);
+						String url = rs.getString(10);
+						String thumbnails = rs.getString(11);
+						String category = rs.getString(12);
+						
+						MediaVO vo = new MediaVO(media_id, title, channel, up, down, views, running_time, dates, hashtag, url, thumbnails, category);
+						list.add(vo);
+
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					close();
+				}
+
+				return list;
+			}	
+			
+			//****좋아요 ++ ****
+			public int upcntUpdate(String media_id) {
+				conn = getConn();
+				int cnt = 0;
+				String sql = "update media set up = up + 1 where media_id = ?";
+				try {
+					pst = conn.prepareStatement(sql);
+					pst.setString(1, media_id);
+					cnt = pst.executeUpdate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					close();
+				}
+				
+				return cnt;
+				
+			}		
+			
+			//****싫어요 ++ ****
+			public int downcntUpdate(String media_id) {
+				conn = getConn();
+				int cnt = 0;
+				String sql = "update media set down = down + 1 where media_id = ?";
+				try {
+					pst = conn.prepareStatement(sql);
+					pst.setString(1, media_id);
+					cnt = pst.executeUpdate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					close();
+				}
+				
+				return cnt;
+				
+			}
+			
+			//****조회수 ++ ****
+			public int viewcntUpdate(String media_id) {
+				conn = getConn();
+				int cnt = 0;
+				String sql = "update media set views = views + 1 where media_id = ?";
+				try {
+					pst = conn.prepareStatement(sql);
+					pst.setString(1, media_id);
+					cnt = pst.executeUpdate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					close();
+				}
+				
+				return cnt;
+				
+			}
 	
 	//****DB CLOSE기능****
 			public void close() {
