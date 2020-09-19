@@ -2255,7 +2255,7 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 	z-index: 2;
 }
 
-.tiles article>a {
+/* .tiles article>a { // content를 박스안에 보이게 하기
 	display: -moz-flex;
 	display: -webkit-flex;
 	display: -ms-flex;
@@ -2289,8 +2289,7 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 	text-align: center;
 	text-decoration: none;
 	z-index: 3;
-}
-
+} */
 .tiles article>a>:last-child {
 	margin: 0;
 }
@@ -2303,7 +2302,7 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 	margin: 0;
 }
 
-.tiles article>a .content {
+/* .tiles article>a .content { 내용 나오게 하는 코드
 	-moz-transition: max-height 0.5s ease, opacity 0.5s ease;
 	-webkit-transition: max-height 0.5s ease, opacity 0.5s ease;
 	-ms-transition: max-height 0.5s ease, opacity 0.5s ease;
@@ -2313,8 +2312,7 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 	line-height: 1.5;
 	margin-top: 0.35em;
 	opacity: 0;
-}
-
+} */
 .tiles article>a .content>:last-child {
 	margin-bottom: 0;
 }
@@ -2381,7 +2379,7 @@ body.is-touch .tiles article .content {
 	opacity: 1;
 }
 
-@media screen and (max-width: 1280px) {
+/* @media screen and (max-width: 1280px) { 화면이 커지면 박스 커짐
 	.tiles {
 		margin: -1.25em 0 0 -1.25em;
 	}
@@ -2389,9 +2387,9 @@ body.is-touch .tiles article .content {
 		width: calc(33.33333% - 1.25em);
 		margin: 1.25em 0 0 1.25em;
 	}
-}
+} */
 
-@media screen and (max-width: 980px) {
+/* @media screen and (max-width: 980px) {
 	.tiles {
 		margin: -2.5em 0 0 -2.5em;
 	}
@@ -2425,8 +2423,7 @@ body.is-touch .tiles article .content {
 		width: 100%;
 		margin: 1.25em 0 0 0;
 	}
-}
-
+} */
 
 /* Header */
 #header {
@@ -2460,6 +2457,29 @@ body.is-touch .tiles article .content {
 	height: 2em;
 }
 
+#header .login {
+	display: block;
+	border-bottom: 0;
+	color: inherit;
+	font-weight: 900;
+	letter-spacing: 0.35em;
+	margin: 0 0 2.5em 0;
+	text-decoration: none;
+	text-transform: uppercase;
+	display: inline-block;
+	float: right;
+}
+
+#header .set {
+	margin-right: 0.65em;
+}
+
+#header .set img {
+	display: block;
+	width: 3em;
+	height: 3em;
+	float: right;
+}
 
 #header nav {
 	position: fixed;
@@ -2501,11 +2521,7 @@ body.is-touch .tiles article .content {
 	letter-spacing: 0.35em;
 	text-transform: uppercase;
 }
-#header .set img {
-	display: block;
-	width: 3em;
-	height: 3em;
-}
+
 #header nav ul li a[href="#menu"] {
 	-webkit-tap-highlight-color: transparent;
 	width: 4em;
