@@ -6,8 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 public class UserDAO {
-	// 로그인 기능
+	// 1. 로그인 기능
+	// 2. 수정 기능(선호 카테고리, 설정 영상 재생 시간)
 	
 	private Connection conn;
 	private PreparedStatement pst;
@@ -60,8 +62,45 @@ public class UserDAO {
 		return pw;
 	}
 	
+	//****선호 카테고리 수정기능****
+	public int usersUpdate(UsersVO vo) {
+		conn = getConn();
+		int cnt = 0;
+		String sql = "update users set preference = ? where user_id = ?";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, vo.getPreference());
+			pst.setString(2, vo.getUser_id());
+			cnt = pst.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return cnt;
+		
+	}
 	
-	
+	//****선호 재생 시간 수정기능****
+		public int settimeUpdate(UsersVO vo) {
+			conn = getConn();
+			int cnt = 0;
+			String sql = "update users set set_time = ? where user_id = ?";
+			try {
+				pst = conn.prepareStatement(sql);
+				pst.setString(1, vo.getPreference());
+				pst.setString(2, vo.getUser_id());
+				cnt = pst.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close();
+			}
+			
+			return cnt;
+			
+		}
 	
 	//****DB CLOSE기능****
 	public void close() {

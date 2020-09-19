@@ -70,11 +70,12 @@ public class StorageDAO {
 
 		}
 		
-		//****히스토리 최신순으로 5개 보여주기****
+		//****히스토리 최신순으로 5개 보여주기 : 영상 id 5개 추출 ****
 //		public ArrayList<StorageVO> HistoryList(String user_id) {
 //			ArrayList<StorageVO> list = new ArrayList<StorageVO>();
 //			conn = getConn();
-//			String sql = "select * from storage where user_id = ?, playtime is not null, order by  ";
+//			String sql = "select media_id from storage where user_id = ?, 
+//		playtime is not null, order by 시청날짜 desc limit 5";
 //			try {
 //				pst = conn.prepareStatement(sql);
 //				pst.setString(1, media_id);

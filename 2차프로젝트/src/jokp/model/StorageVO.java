@@ -6,7 +6,7 @@ public class StorageVO {
 	private String media_id;
 	private String playtime;
 	private char upcheck;
-	
+	//재생했던 날짜 저장하는게 없다...db에 컬럼추가해야된다...!
 	
 	
 	
