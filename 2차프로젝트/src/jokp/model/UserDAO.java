@@ -28,7 +28,6 @@ public class UserDAO {
 	//****DB 연결기능****
 		public Connection getConn() { // 연결 객체
 		
-			System.out.println("출력");
 			String url = "jdbc:oracle:thin:@localhost:1521:XE";
 			String user = "jokp";
 			String password = "1234";
@@ -38,7 +37,6 @@ public class UserDAO {
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
-				System.out.println("왜에러???2");
 			}
 
 			return conn;

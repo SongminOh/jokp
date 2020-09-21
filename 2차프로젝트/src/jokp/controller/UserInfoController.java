@@ -17,13 +17,11 @@ import jokp.model.UsersVO;
 @WebServlet("/userinfo")
 public class UserInfoController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+	request.setCharacterEncoding("euc-kr");
 	String user_id = request.getParameter("user_id");
 	UserDAO dao = new UserDAO();
 	UsersVO vo = dao.userinfoList(user_id);
 	
-	PrintWriter out = response.getWriter();
-	out.print(user_id);
 	
 	request.setAttribute("vo", vo );
 	RequestDispatcher rd = request.getRequestDispatcher("test.jsp");

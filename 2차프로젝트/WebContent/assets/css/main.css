@@ -157,7 +157,7 @@ em, i {
 
 p {
 	margin: 0 0 2em 0;
-	font-size : 0.7em;
+	font-size: 0.7em;
 }
 
 h1 {
@@ -194,7 +194,7 @@ h2, h3, h4, h5, h6 {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	width: 10em;
-	word-break:break-all;
+	word-break: break-all;
 }
 
 h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -1471,9 +1471,10 @@ hr.major {
 	.row.gtr-200.gtr-uniform>* {
 		padding-top: 2em;
 	}
-} */
+}
 
-/* Section/Article */
+* /
+	/* Section/Article */ 
 section.special, article.special {
 	text-align: center;
 }
@@ -2220,7 +2221,7 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 	width: 100%;
 }
 
-./* tiles article>.image:before {
+. /* tiles article>.image:before {
 	pointer-events: none;
 	-moz-transition: background-color 0.5s ease, opacity 0.5s ease;
 	-webkit-transition: background-color 0.5s ease, opacity 0.5s ease;
