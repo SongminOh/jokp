@@ -26,6 +26,7 @@ public class MediaDAO {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
+			System.out.println("¿Ö¿¡·¯???1");
 		}
 
 	}
@@ -40,6 +41,7 @@ public class MediaDAO {
 			conn = DriverManager.getConnection(url, user, password);
 		} catch (SQLException e) {
 			e.printStackTrace();
+			
 		}
 
 		return conn;

@@ -24,22 +24,25 @@ public class UserDAO {
 		}
 
 	}
-
+	
 	//****DB 연결기능****
-	public Connection getConn() { // 연결 객체
-		String url = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
-		String user = "jokp";
-		String password = "1234";
+		public Connection getConn() { // 연결 객체
+		
+			String url = "jdbc:oracle:thin:@localhost:1521:XE";
+			String user = "jokp";
+			String password = "1234";
 
-		try {
-			conn = DriverManager.getConnection(url, user, password);
-		} catch (SQLException e) {
-			e.printStackTrace();
+			try {
+				conn = DriverManager.getConnection(url, user, password);
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+			return conn;
+
 		}
-
-		return conn;
-
-	}
+	
 	
 	//****로그인기능**** : id에 해당하는 pw값 return
 	public String login(String user_id) {
@@ -104,15 +107,15 @@ public class UserDAO {
 		}
 		
 		//****사용자 정보 보기 기능****
-		public ArrayList<UsersVO> userinfoList(String user_id) {
-			ArrayList<UsersVO> list = new ArrayList<UsersVO>();
+		public UsersVO userinfoList(String user_id) {
+			UsersVO vo = null;
 			conn = getConn();
 			String sql = "select * from users where user_id = ?";
 			try {
 				pst = conn.prepareStatement(sql);
 				pst.setString(1, user_id);
 				rs = pst.executeQuery();
-				while (rs.next()) {
+				if (rs.next()) {
 					user_id = rs.getString(1);
 					String pw = rs.getString(2);
 					String name = rs.getString(3);
@@ -120,8 +123,8 @@ public class UserDAO {
 					String job = rs.getString(5);
 					String preference = rs.getString(6);
 					String set_time = rs.getString(7);
-					UsersVO vo = new UsersVO(user_id, pw, name, age, job, preference, set_time);
-					list.add(vo);
+					vo = new UsersVO(user_id, pw, name, age, job, preference, set_time);
+					
 
 				}
 			} catch (SQLException e) {
@@ -130,7 +133,7 @@ public class UserDAO {
 				close();
 			}
 
-			return list;
+			return vo;
 		}	
 		
 		
