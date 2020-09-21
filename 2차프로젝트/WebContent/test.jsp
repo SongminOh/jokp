@@ -8,10 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form action = '/2차프로젝트/timeset' method='post'>
+<input type ='hidden' name = 'user_id' value = '${vo.user_id}'> 
 <table>
 			<tr>
 				<td>아이디</td>
-				<td>${vo.user_id}</td>
+				<td>${user_id}</td>
 			</tr>
 			<tr>
 				<td>이름</td>
@@ -31,10 +33,12 @@
 			</tr>
 			<tr>
 				<td>선호시간</td>
-				<td>${vo.set_time}</td>
+				<td><input type='text' name = 'set_time' value ='${vo.set_time}'></td>
 			</tr>
-			
+			<tr colspan = 2>
+				<td><input type = 'submit' value = '수정'></td>
+			</tr>
 		</table>
-
+</form>
 </body>
 </html>
