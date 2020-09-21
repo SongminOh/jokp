@@ -120,7 +120,7 @@ body, input, select, textarea {
 	line-height: 1.75;
 }
 
-@media screen and (max-width: 1680px) {
+/* @media screen and (max-width: 1680px) {
 	body, input, select, textarea {
 		font-size: 14pt;
 	}
@@ -130,7 +130,7 @@ body, input, select, textarea {
 	body, input, select, textarea {
 		font-size: 12pt;
 	}
-}
+} */
 
 a {
 	-moz-transition: border-bottom-color 0.2s ease, color 0.2s ease;
@@ -160,11 +160,16 @@ p {
 	font-size: 0.7em;
 }
 
+a span{
+	font-size: 1em;
+}
+
 h1 {
-	font-size: 2.75em;
+	 position: relative;
+	font-size: 1.5em;
 	font-weight: 700;
-	line-height: 1.3;
-	margin: 0 0 1em 0;
+	line-height: 3;
+	margin: 0 1em 1em 0;
 	letter-spacing: -0.035em;
 }
 
@@ -172,9 +177,9 @@ h1 a {
 	color: inherit;
 }
 
-@media screen and (max-width: 736px) {
+/* @media screen and (max-width: 736px) {
 	h1 {
-		font-size: 2em;
+		font-size: 1em;
 		margin: 0 0 1em 0;
 	}
 }
@@ -183,7 +188,7 @@ h1 a {
 	h1 {
 		font-size: 1.75em;
 	}
-}
+} */
 
 h2, h3, h4, h5, h6 {
 	font-weight: 900;
@@ -2207,7 +2212,7 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 	margin: 1em 0 0 1em;
 }
 
-.tiles article>.image {
+/* .tiles article>.image {
 	-moz-transition: -moz-transform 0.5s ease;
 	-webkit-transition: -webkit-transform 0.5s ease;
 	-ms-transition: -ms-transform 0.5s ease;
@@ -2217,7 +2222,7 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 	width: 100%;
 	border-radius: 4px;
 	overflow: hidden;
-}
+} */
 
 .tiles article>.image img {
 	display: block;
@@ -2304,7 +2309,7 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 }
 
 .tiles article>a:hover {
-	color: #ffffff !important;
+	color: #000000!important;
 }
 
 .tiles article>a h2 {
