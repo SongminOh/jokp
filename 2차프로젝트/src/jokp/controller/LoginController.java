@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import jokp.model.UserDAO;
+import jokp.model.UsersVO;
 
  @WebServlet("/getlogin")
 public class LoginController extends HttpServlet {
@@ -30,7 +31,8 @@ public class LoginController extends HttpServlet {
 //			String id = session.getId();
 			//request의 객체바인딩은 한페이지만 받을수 있어서 적합하지 않다.
 			session.setAttribute("user_id", user_id); //객체바인딩(session)
-			
+//			UsersVO vo = dao.userinfoList(user_id);
+//			request.setAttribute("vo", vo);
 			response.sendRedirect("test.jsp"); 
 		}else {
 			//회원인증 실패! 

@@ -24,7 +24,7 @@ public class UserInfoController extends HttpServlet {
 		
 		
 		request.setAttribute("vo", vo );
-		RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("test2.jsp");
 		rd.forward(request, response);
 		
 	}
