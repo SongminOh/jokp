@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>My Now Amazing Webpage</title>
+<link rel="stylesheet" type="text/css"
+	href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript"
+	src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<style>
+	.post-wrapper{position:relative;}
+	.post-wrapper button {position:absolute; z-index:10; top:50%;
+	transform:translateY(-50%); width:71px; height:71px; border-radius:100%;
+	background:rgba(0,0,0,.5); border:none;}
+	.post-wrapper button:before{ font-family:'xeicon'; color:#fff;
+	font-size:45px;}
+	.post-wrapper button.slick-prev {left:50px; font-size:0; color:transparent;}
+	.post-wrapper button.slick-prev:before { content:"\e93b"; font-family:'xeicon';}
+	.post-wrapper button.slick-next {right:50px; font-size:0; color:transparent;}
+	.post-wrapper button.slick-next:before { content:"\e93e"; font-family:'xeicon';}
+	
+</style>
+</head>
+<body>
+
+<i class="xi-angle-left"></i>
+<i class="xi-angle-right"></i>
+
+
+
+	<!-- stlye 은 slick 영역 확인용 -->
+<div class="post-slider">
+        <h1 class="sider-title">Treding Posts</h1>
+        <div class="post-wrapper">
+          <div>
+				<img src="images/pic01.jpg" alt="" />
+			</div>
+			<div>
+				<img src="images/pic02.jpg" alt="" />
+			</div>
+			<div>
+				<img src="images/pic03.jpg" alt="" />
+			</div>
+			<div>
+				<img src="images/pic04.jpg" alt="" />
+			</div>
+			<div>
+				<img src="images/pic05.jpg" alt="" />
+			</div>
+			<div>
+				<img src="images/pic06.jpg" alt="" />
+			</div>
+			<div>
+				<img src="images/pic07.jpg" alt="" />
+			</div>
+        </div>
+</div>
+
+
+<script type="text/javascript">
+$('.post-wrapper').slick({
+	  slidesToShow: 5,
+	  slidesToScroll: 1,
+	  autoplay: false,
+	  autoplaySpeed: 2000,
+	});
+</script>
+</body>
+</html>
