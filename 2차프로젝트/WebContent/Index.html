@@ -21,9 +21,21 @@
 				<!-- Logo -->
 				<a href="Index.html" class="logo"> <span class="symbol"><img
 						src="images/logo.svg" alt="" /></span><span class="title">JOKP</span>
+				
+				<div class="green_window" style="">
+					<input id="query" name="query" type="text" title="검색어 입력"
+						maxlength="50" class="input_text" tabindex="1" accesskey="s"
+						style="ime-mode: active;" autocomplete="off"
+						onclick="document.getElementById('fbm').value=1;" value="">
+				</div>
+				<button id="search_btn" type="submit" title="검색" tabindex="3"
+					class="btn_submit"
+					onclick="window.nclick(this,'sch.action','','',event);" style="">
+					<span class="blind">검색</span> <span class="ico_search_submit"></span>
+				</button>
+				
 				</a> <a class="login"><button>로그인</button> <span class="set"><img
 						src="images/set.png" alt="" /></span> </a>
-
 
 
 				<!-- Nav -->
@@ -49,18 +61,6 @@
 				<li><a href="History.html">History</a></li>
 			</ul>
 		</nav>
-		<table align="center" width="100%">
-			<tbody>
-				<tr>
-					<td align="center">
-						<div>
-							<input type="hidden" name="ie" value="UTF-8" /> <input
-								type="text" name="q" size="15" />
-						</div>
-					</td>
-				</tr>
-			</tbody>
-		</table>
 
 
 
