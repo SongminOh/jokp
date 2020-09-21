@@ -2,6 +2,11 @@
 <html>
 <head>
 <title>Phantom by HTML5 UP</title>
+ <script language="javascript">
+  function showPopup() { 
+	  window.open("login.html", "a", "width=500, height=500, left=600, top=100"); 
+  }
+  </script>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -19,30 +24,33 @@
 			<div class="inner">
 
 				<!-- Logo -->
-				<a href="Index.html" class="logo"> <span class="symbol"><img
-						src="images/logo.svg" alt="" /></span><span class="title">JOKP</span>
 				
-				<div class="green_window" style="">
-					<input id="query" name="query" type="text" title="검색어 입력"
-						maxlength="50" class="input_text" tabindex="1" accesskey="s"
-						style="ime-mode: active;" autocomplete="off"
-						onclick="document.getElementById('fbm').value=1;" value="">
-				</div>
-				<button id="search_btn" type="submit" title="검색" tabindex="3"
-					class="btn_submit"
-					onclick="window.nclick(this,'sch.action','','',event);" style="">
-					<span class="blind">검색</span> <span class="ico_search_submit"></span>
-				</button>
-				
-				</a> <a class="login"><button>로그인</button> <span class="set"><img
-						src="images/set.png" alt="" /></span> </a>
+            <a href="Index.html" class="logo"> <span class="symbol"><img
+                  src="images/logo.svg" alt="" /></span><span class="title">JOKP</span>
+            
+            <div class="green_window" style="">
+               <input id="query" name="query" type="text" title="검색어 입력"
+                  maxlength="50" class="input_text" tabindex="1" accesskey="s"
+                  style="ime-mode: active;" autocomplete="off"
+                  onclick="document.getElementById('fbm').value=1;" value="">
+            </div>
+            <button id="search_btn" type="submit" title="검색" tabindex="3"
+               class="btn_submit"
+               onclick="window.nclick(this,'sch.action','','',event);" style="">
+               <span class="blind">검색</span> <span class="ico_search_submit"></span>
+            </button>
+            
+            </a>
+				 <a class="login">
+
+					<input type="button" value="로그인" onclick="showPopup();" /><span class="set"><img
+						src="images/set2.png" alt="" /></span>
+				</a>
 
 
 				<!-- Nav -->
 				<nav>
 					<ul>
-
-
 
 						<li><a href="#menu">Menu</a></li>
 					</ul>
@@ -59,6 +67,8 @@
 				<li><a href="Index.html">Home</a></li>
 				<li><a href="Mypage.html">Mypage</a></li>
 				<li><a href="History.html">History</a></li>
+				
+				
 			</ul>
 		</nav>
 
@@ -71,7 +81,7 @@
 				<section class="tiles">
 					<article class="style1">
 						<span class="image"> <img src="images/pic01.jpg" alt="" />
-						</span> <a href="Mypage.html">
+						</span> <a href="Media.html">
 							<h2>단어단어단어단어단어단어단어</h2>
 							<div class="content">
 								<!-- <p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor

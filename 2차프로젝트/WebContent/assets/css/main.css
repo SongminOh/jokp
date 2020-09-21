@@ -1818,9 +1818,12 @@ input[type="text"], input[type="password"], input[type="email"], input[type="tel
 	color: inherit;
 	display: block;
 	outline: 0;
-	padding: 0;
+	padding: 12px 20px;
 	text-decoration: none;
 	width: 100%;
+	 
+  
+  
 }
 
 input[type="text"]:invalid, input[type="password"]:invalid, input[type="email"]:invalid,
@@ -2461,9 +2464,14 @@ body.is-touch .tiles article .content {
 	width: 2em;
 	height: 2em;
 }
+#header .green_window{
+	vertical-align: middle;
+	margin-left: 2em;
+}
+
 
 #header .login {
-	display: block;
+	
 	border-bottom: 0;
 	color: inherit;
 	font-weight: 900;
@@ -2476,7 +2484,7 @@ body.is-touch .tiles article .content {
 }
 
 #header .set {
-	margin-right: 0.65em;
+	margin-right: 0.5em;
 }
 
 #header .set img {
