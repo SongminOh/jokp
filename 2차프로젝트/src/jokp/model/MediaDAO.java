@@ -65,7 +65,7 @@ public class MediaDAO {
 						int up = rs.getInt(4);
 						int down = rs.getInt(5);
 						int views = rs.getInt(6);
-						Timestamp running_time = rs.getTimestamp(7);
+						String running_time = rs.getString(7);
 						Date dates = rs.getDate(8);
 						String hashtag = rs.getString(9);
 						String url = rs.getString(10);
@@ -101,7 +101,7 @@ public class MediaDAO {
 						int up = rs.getInt(4);
 						int down = rs.getInt(5);
 						int views = rs.getInt(6);
-						Timestamp running_time = rs.getTimestamp(7);
+						String running_time = rs.getString(7);
 						Date dates = rs.getDate(8);
 						String hashtag = rs.getString(9);
 						String url = rs.getString(10);
@@ -139,7 +139,7 @@ public class MediaDAO {
 						int up = rs.getInt(4);
 						int down = rs.getInt(5);
 						int views = rs.getInt(6);
-						Timestamp running_time = rs.getTimestamp(7);
+						String running_time = rs.getString(7);
 						Date dates = rs.getDate(8);
 						String hashtag = rs.getString(9);
 						String url = rs.getString(10);

@@ -17,15 +17,13 @@ $(document).ready(function(){
 });
 
 function result(data){
-	  var str = "<table border='1'>";
-	  str += "<tr>";
-	  str += "<td>제목</td>";
-	  str += "<td>썸네일 주소</td>";
-	  str += "</tr>";
+	  var str = "<table border='0'>";
+	  
 	  $.each(data, function(index,obj){ //object에서 요소 빼는법 obj.num
 		  str += "<tr>";
-		  str += "<td><a href='/2차프로젝트/재생.jsp?media_id="+obj.media_id+"'>"+obj.title+"</a></td>";
 		  str += "<td><a href='/2차프로젝트/재생.jsp?media_id="+obj.media_id+"'><img src='"+obj.thumbnails+"''</a></td>";
+		  str += "</tr><tr>"
+		  str += "<td align='center'><a href='/2차프로젝트/재생.jsp?media_id="+obj.media_id+"'>"+obj.title+"</a></td>";
 		  str += "</tr>";	  
 	  });
 	  str += "</table>"

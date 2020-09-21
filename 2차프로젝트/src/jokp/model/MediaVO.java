@@ -10,7 +10,7 @@ public class MediaVO {
 	private int up;
 	private int down;
 	private int views;
-	private Timestamp running_time;
+	private String running_time;
 	private Date dates;
 	private String hashtag;
 	private String url;
@@ -23,7 +23,7 @@ public class MediaVO {
 	}
 
 
-	public MediaVO(String media_id, String title, String channel, int up, int down, int views, Timestamp running_time,
+	public MediaVO(String media_id, String title, String channel, int up, int down, int views, String running_time,
 			Date dates, String hashtag, String url, String thumbnails, String category) {
 		this.media_id = media_id;
 		this.title = title;
@@ -113,13 +113,13 @@ public class MediaVO {
 
 
 
-	public Timestamp getRunning_time() {
+	public String getRunning_time() {
 		return running_time;
 	}
 
 
 
-	public void setRunning_time(Timestamp running_time) {
+	public void setRunning_time(String running_time) {
 		this.running_time = running_time;
 	}
 
