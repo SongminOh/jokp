@@ -2462,12 +2462,8 @@ body.is-touch .tiles article .content {
 
 #header .logo .symbol img {
 	display: block;
-	width: 2em;
-	height: 2em;
-}
-#header .green_window{
-	vertical-align: middle;
-	margin-left: 2em;
+	width: 5em;
+	height: 5em;
 }
 
 
