@@ -1,6 +1,9 @@
 package jokp.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,9 +18,16 @@ import jokp.model.UsersVO;
 public class UserInfoController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-	//String user_id = request.getAttribute("user_id");
+	String user_id = request.getParameter("user_id");
 	UserDAO dao = new UserDAO();
-	//dao.userinfoList(user_id);
+	UsersVO vo = dao.userinfoList(user_id);
+	
+	PrintWriter out = response.getWriter();
+	out.print(user_id);
+	
+	request.setAttribute("vo", vo );
+	RequestDispatcher rd = request.getRequestDispatcher("test.jsp");
+	rd.forward(request, response);
 	
 	}
 
