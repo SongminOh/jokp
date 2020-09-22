@@ -34,8 +34,8 @@
 						<li><a href="#menu">Menu</a></li>
 					</ul>
 				</nav>
-				///////////////////////////////////////////////////////////////
 				<head>
+				<h1>요일별 총 이용 카테고리 분석</h1>
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
@@ -57,12 +57,12 @@
 				[ '일욜', 136, 691, 629, 1026, 366, 569.6 ] ]);
 
 		var options = {
-			title : 'Monthly Coffee Production by Country',
+			title : '',
 			vAxis : {
-				title : 'Cups'
+				title : '시간 '
 			},
 			hAxis : {
-				title : 'Month'
+				title : '요일'
 			},
 			seriesType : 'bars',
 			series : {
@@ -84,125 +84,133 @@
 
 
 
-				/////////////////////////////////////////////////////////////////
-				<table class="tg">
-					<thead>
-						<tr>
-							<th class="tg-096r">대분류</th>
-							<th class="tg-096r"></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="tg-0lax"><body>
 
-									<h1>전체 시청기록 기반</h1>
-								<head>
-<script type="text/javascript"
-	src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-	google.charts.load("current", {
-		packages : [ "corechart" ]
-	});
-	google.charts.setOnLoadCallback(drawChart);
-	function drawChart() {
-		var data = google.visualization.arrayToDataTable([
-				[ 'Task', 'Hours per Day' ], [ 'Work', 11 ], [ 'Eat', 2 ],
-				[ 'Commute', 2 ], [ 'Watch TV', 2 ], [ 'Sleep', 7 ] ]);
+				<head>
 
-		var options = {
-			title : 'My Daily Activities',
-			is3D : true,
-		};
-
-		var chart = new google.visualization.PieChart(document
-				.getElementById('piechart_3d'));
-		chart.draw(data, options);
-	}
-</script>
-								</head>
-								<body>
-									<div id="piechart_3d" style="width: 600px; height: 500px;"></div>
-								</body> //////////////////////////////////////////////////////////////
-								
 
 <table class="tg">
-	<thead>
-		<tr>
-			<th class="tg-096r">대분류</th>
-			<th class="tg-096r">소분류</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td class="tg-0lax"><body>
 
-					<h1>좋아요 영상의 카테고리의 기반 </h1>
-					<div style="width: 100%; float: left">
-						<table id="tbl1"></table>
-					</div>
-					<div id="piechart"></div>
-					<script type="text/javascript"
+	<h1>전체 시청기록 기반</h1>
+				<script type="text/javascript"
 						src="https://www.gstatic.com/charts/loader.js"></script>
 					<script type="text/javascript">
-						// Load google charts
-
-						google.charts.load('current', {
-							'packages' : [ 'corechart' ]
+						google.charts.load("current", {
+							packages : [ "corechart" ]
 						});
 						google.charts.setOnLoadCallback(drawChart);
-
-						// Draw the chart and set the chart values
 						function drawChart() {
-							var data = google.visualization
-									.arrayToDataTable([
-											[ 'Task', 'Hours per Day' ],
-											[ '어학 영어', 8 ], [ '영화리뷰', 2 ],
-											[ '애니리뷰', 4 ], [ '영화광고', 2 ],
-											[ '애니광고', 8 ] ]);
+							var data = google.visualization.arrayToDataTable([
+									[ 'Task', 'Hours per Day' ],
+									[ 'Work', 11 ], [ 'Eat', 2 ],
+									[ 'Commute', 2 ], [ 'Watch TV', 2 ],
+									[ 'Sleep', 7 ] ]);
 
-							// Optional; add a title and set the width and height of the chart
 							var options = {
-								'title' : '총 사용시간',
-								'width' : 500,
-								'height' : 500
+								title : 'My Daily Activities',
+								is3D : true,
 							};
 
-							// Display the chart inside the <div> element with id="piechart"
 							var chart = new google.visualization.PieChart(
-									document.getElementById('piechart'));
+									document.getElementById('piechart_3d'));
 							chart.draw(data, options);
 						}
 					</script>
-				</body></td>
-</table>
+	</tbody>
+	<head>
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+	// Load Charts and the corechart package.
+	google.charts.load('current', {
+		'packages' : [ 'corechart' ]
+	});
+
+	// Draw the pie chart for Sarah's pizza when Charts is loaded.
+	google.charts.setOnLoadCallback(drawSarahChart);
+
+	// Draw the pie chart for the Anthony's pizza when Charts is loaded.
+	google.charts.setOnLoadCallback(drawAnthonyChart);
+
+	// Callback that draws the pie chart for Sarah's pizza.
+	function drawSarahChart() {
+
+		// Create the data table for Sarah's pizza.
+		var data = new google.visualization.DataTable();
+		data.addColumn('string', 'Topping');
+		data.addColumn('number', 'Slices');
+		data.addRows([ [ 'Mushrooms', 1 ], [ 'Onions', 1 ], [ 'Olives', 2 ],
+				[ 'Zucchini', 2 ], [ 'Pepperoni', 1 ] ]);
+
+		// Set options for Sarah's pie chart.
+		var options = {
+			title : '전체 시청기록 기반 대분류',
+			width : 500,
+			height : 500
+		};
+
+		// Instantiate and draw the chart for Sarah's pizza.
+		var chart = new google.visualization.PieChart(document
+				.getElementById('Sarah_chart_div'));
+		chart.draw(data, options);
+	}
+
+	// Callback that draws the pie chart for Anthony's pizza.
+	function drawAnthonyChart() {
+
+		// Create the data table for Anthony's pizza.
+		var data = new google.visualization.DataTable();
+		data.addColumn('string', 'Topping');
+		data.addColumn('number', 'Slices');
+		data.addRows([ [ 'Mushrooms', 2 ], [ 'Onions', 2 ], [ 'Olives', 2 ],
+				[ 'Zucchini', 0 ], [ 'Pepperoni', 3 ] ]);
+
+		// Set options for Anthony's pie chart.
+		var options = {
+			title : '소분류',
+			width : 500,
+			height : 500
+		};
+
+		// Instantiate and draw the chart for Anthony's pizza.
+		var chart = new google.visualization.PieChart(document
+				.getElementById('Anthony_chart_div'));
+		chart.draw(data, options);
+	}
+</script>
+	</head>
+
+	<body>
+		<!--Table and divs that hold the pie charts-->
+		<table class="columns">
+			<tr>
+				<td><div id="Sarah_chart_div" style="border: 1px solid #ccc"></div></td>
+				<td><div id="Anthony_chart_div" style="border: 1px solid #ccc"></div></td>
+			</tr>
+		</table>
+	</body>
 
 
 
 
-<nav id="menu">
-	<h2>Menu</h2>
-	<ul>
-		<li><a href="Index.html">Home</a></li>
-		<li><a href="Mypage.html">Mypage</a></li>
-		<li><a href="History.html">History</a></li>
-		<li><a href="LOVE.html">I love AKINA</a></li>
-	</ul>
-</nav>
-
-<!-- Main -->
+	<nav id="menu">
+		<h2>Menu</h2>
+		<ul>
+			<li><a href="Index.html">Home</a></li>
+			<li><a href="Mypage.html">Mypage</a></li>
+			<li><a href="History.html">History</a></li>
+		</ul>
+	</nav>
+	<!-- Main -->
 
 
 
-<div class="inner"></div>
-
-
-<!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+	<div class="inner"></div>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
 </body>
 </html>
 
