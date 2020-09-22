@@ -15,11 +15,21 @@
 	background:rgba(0,0,0,.5); border:none;}
 	.image button:before{ font-family:'xeicon'; color:#fff;
 	font-size:45px;}
-	.image button.slick-prev {left:50px; font-size:0; color:transparent;}
-	.image button.slick-prev:before { content:"\e93b"; font-family:'xeicon';}
-	.image button.slick-next {right:50px; font-size:0; color:transparent;}
-	.image button.slick-next:before { content:"\e93e"; font-family:'xeicon';}
+	.xi-angle-left button.slick-prev {left:50px; font-size:0; color:transparent;}
+	.xi-angle-left button.slick-prev:before { content:"\e93b"; font-family:'xeicon';}
+	.xi-angle-right button.slick-next {right:50px; font-size:0; color:transparent;}
+	.xi-angle-right button.slick-next:before { content:"\e93e"; font-family:'xeicon';}
 	
+	.con1 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.items2 {
+	display: flex;
+	justify-content: space-between;
+}
 </style>
 
 <meta charset="utf-8" />
@@ -31,18 +41,7 @@
 </noscript>
 
 
-<style type="text/css">
-.con1 {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
 
-.items2 {
-	display: flex;
-	justify-content: space-between;
-}
-</style>
 
 </head>
 <body class="is-preload">
@@ -105,27 +104,29 @@
 			<h2>Menu</h2>
 			<ul>
 				<li><a href="Index.html">Home</a></li>
-				<li><a href="Media.html">Mypage</a></li>
+				<li><a href="Mypage.html">Mypage</a></li>
 				<li><a href="History.html">History</a></li>
 
 
 			</ul>
 		</nav>
 
-<i class="xi-angle-left"></i>
-<i class="xi-angle-right"></i>
+
 
 		<!-- Main -->
 
 		<div id="main">
 			<div class="inner">
+			
 				<header>
 					<h1>카테고리별 영상 추천</h1>
 				</header>
 
 				<section class="tiles">
+				<!-- <i class="xi-angle-left"></i> -->
 					<article class="style1">
 						
+
 						<div class="image"> 
 						<img src="images/pic01.jpg" alt="" />
 						</div> <a href="Media.html">
@@ -137,7 +138,7 @@
 							
 						</a>
 					</article>
-
+<!-- <i class="xi-angle-right"></i> -->
 					<article class="style2">
 					
 						<div class="image"> <img src="images/pic02.jpg" alt="" />
