@@ -7,6 +7,13 @@
 <html>
 <head>
 <title>Mypage - Phantom by HTML5 UP</title>
+<style>
+video {
+	max-width: 80%;
+	display: block;
+	margin: 20px auto;
+}
+</style>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -19,18 +26,41 @@
 	<!-- Wrapper -->
 	<div id="wrapper">
 
-		<!-- Header -->
 		<header id="header">
 			<div class="inner">
 
-				<!-- Logo -->
-				<a href="Index.html" class="logo"> <span class="symbol"><img
-						src="images/logo.jpg" alt="" /></span><span class="title">JOK_Player</span>
-				</a>
+				
 
+				</div>
 				<!-- Nav -->
 				<nav>
 					<ul>
+						<li><a href="Index.html" class="logo"> <span class="symbol">
+								<img src="images/logo.png" alt="" />
+						</span>
+						</a><li>
+						<li>
+						<div>
+							<input class="query" name="query" type="text" title="검색어 입력"
+								maxlength="50" class="input_text" tabindex="1" accesskey="s"
+								style="ime-mode: active;" autocomplete="off"
+								onclick="document.getElementById('fbm').value=1;" value="">
+						</div>
+						</li>
+						<li>
+						<div>
+							<button class="search_btn" type="submit" title="검색" tabindex="3"
+								class="btn_submit"
+								onclick="window.nclick(this,'sch.action','','',event);" style="">
+								<span class="blind">검색</span> <span class="ico_search_submit"></span>
+							</button>
+						</div>
+						</li>
+						<li><a class="login"> <input type="button" value="로그인"
+							onclick="showPopup();" /> <span class="set"><img
+								src="images/set.png" alt="" /></span>
+						</a>
+						</li>
 						<li><a href="#menu">Menu</a></li>
 					</ul>
 				</nav>
@@ -50,13 +80,40 @@
 
 		<!-- Main -->
 		<div id="main">
-			<div class="inner"></div>
+			<div class="inner">
+				<iframe width="1280" height="720"
+					src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1">
+				</iframe>
+				<table frame=void border-right:none; border-left:none; border-top:none;
+					border-bottom:none;>
+					<tr>
+						<td>
+							<h1>영상 제목</h1>
+						</td>
+					</tr>
+					<tr>
+						<td>조회수</td>
+						<td>조회수</td>
+						<td>게시일</td>
+						<td>좋아요</td>
+						<td>좋아요횟수</td>
+						<td>싫어요</td>
+						<td>싫어요횟수</td>
+
+
+					</tr>
+				</table>
+			</div>
 		</div>
 
 
 	</div>
 
 	<!-- Scripts -->
+
+
+
+	</script>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/browser.min.js"></script>
 	<script src="assets/js/breakpoints.min.js"></script>

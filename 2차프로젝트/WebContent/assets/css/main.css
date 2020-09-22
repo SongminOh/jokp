@@ -31,6 +31,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 
 body {
 	line-height: 1;
+	margin-left: 150px; 
+    margin-right: 150px;
 }
 
 ol, ul {
@@ -193,8 +195,8 @@ h1 a {
 h2, h3, h4, h5, h6 {
 	-webkit-line-clamp: 2;
 	font-weight: 900;
-	line-height: 1.5;
-	margin: 0 0 2em 0;
+	
+	margin: 0 0 1em 0;
 	text-transform: uppercase;
 	letter-spacing: 0.35em;
 	overflow: hidden;
@@ -1855,7 +1857,7 @@ select {
 	background-size: 1.25rem;
 	background-repeat: no-repeat;
 	background-position: calc(100% - 1rem) center;
-	height: 3em;
+	height: 2em;
 	padding-right: 3em;
 	text-overflow: ellipsis;
 }
@@ -2125,9 +2127,9 @@ input[type="submit"], input[type="reset"], input[type="button"], button,
 	display: inline-block;
 	font-size: 0.8em;
 	font-weight: 900;
-	height: 3.5em;
+	height: 45px;
 	letter-spacing: 0.35em;
-	line-height: 3.45em;
+	line-height: 0px;
 	overflow: hidden;
 	padding: 0 1.25em 0 1.6em;
 	text-align: center;
@@ -2205,7 +2207,7 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 	postiion: relative;
-	margin: -2.5em 0 0 -2.5em;
+	margin: 0 0 0 0;
 }
 
 .tiles article {
@@ -2232,7 +2234,7 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 
 .tiles article>.image img {
 	display: block;
-	width: 100%;
+	width: 150%;
 }
 
 . /* tiles article>.image:before {
@@ -2447,7 +2449,7 @@ body.is-touch .tiles article .content {
 
 /* Header */
 #header {
-	padding: 8em 0 0.1em 0;
+	padding: 8em 0 0 0;
 }
 
 #header .logo {
@@ -2456,15 +2458,17 @@ body.is-touch .tiles article .content {
 	color: inherit;
 	font-weight: 900;
 	letter-spacing: 0.35em;
-	margin: 0 0 2.5em 0;
+	margin: 0 100px 0 0;
 	text-decoration: none;
 	text-transform: uppercase;
 	display: inline-block;
+	padding-left: 0px;
 }
 
 #header .logo>* {
 	display: inline-block;
 	vertical-align: middle;
+	align:left;
 }
 
 #header .logo .symbol {
@@ -2473,10 +2477,14 @@ body.is-touch .tiles article .content {
 
 #header .logo .symbol img {
 	display: block;
-	width: 5em;
-	height: 5em;
+	width: 288px;
+	height: 45px;
+	margin:5 0 0 0;
+	align-items: flex-start;
 }
-
+#heade .search_btn{
+	margin: 2.5 2.5 2.5 2.5;
+}
 
 #header .login {
 	
@@ -2484,11 +2492,11 @@ body.is-touch .tiles article .content {
 	color: inherit;
 	font-weight: 900;
 	letter-spacing: 0.35em;
-	margin: 0 0 2.5em 0;
+	margin: 2.5 2.5 2.5 2.5;
 	text-decoration: none;
 	text-transform: uppercase;
 	display: inline-block;
-	float: right;
+	float: none;
 }
 
 #header .set {
@@ -2497,15 +2505,16 @@ body.is-touch .tiles article .content {
 
 #header .set img {
 	display: block;
-	width: 3em;
-	height: 3em;
+	width: 45px;
+	height: 45px;
+	margin:5 0 0 0 ; 
 	float: right;
 }
 
 #header nav {
+	background-color:white;
 	position: fixed;
-	right: 2em;
-	top: 2em;
+	top: 0;
 	z-index: 10000;
 }
 
@@ -2533,7 +2542,7 @@ body.is-touch .tiles article .content {
 	position: relative;
 	height: 3em;
 	line-height: 3em;
-	padding: 0 1.5em;
+	padding: 0px 20.5px 4px 338px;
 	background-color: rgba(255, 255, 255, 0.5);
 	border-radius: 4px;
 	border: 0;
@@ -2542,7 +2551,9 @@ body.is-touch .tiles article .content {
 	letter-spacing: 0.35em;
 	text-transform: uppercase;
 }
-
+#header .query{
+	padding: 0 0 0 0 ;
+}
 #header nav ul li a[href="#menu"] {
 	-webkit-tap-highlight-color: transparent;
 	width: 4em;
