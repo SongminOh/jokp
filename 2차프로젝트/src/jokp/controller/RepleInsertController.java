@@ -27,7 +27,6 @@ public class RepleInsertController extends HttpServlet {
 		int cnt = dao.repleInsert(user_id, media_id, reple_content);
 		
 		
-		response.setContentType("text/html;charset=euc-kr");
 		PrintWriter out = response.getWriter();
 		
 		if(cnt>0) {

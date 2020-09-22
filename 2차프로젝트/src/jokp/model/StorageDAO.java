@@ -55,9 +55,9 @@ public class StorageDAO {
 				pst = conn.prepareStatement(sql);
 				pst.setString(1, vo.getUser_id());
 				pst.setString(2, vo.getMedia_id());
-				pst.setTimestamp(3, vo.getPlaytime());
+				pst.setString(3, vo.getPlaytime());
 				pst.setLong(4, vo.getUpcheck());
-				pst.setTimestamp(5, vo.getVisit_time());
+				pst.setString(5, vo.getVisit_time());
 
 				cnt = pst.executeUpdate();
 				
@@ -72,32 +72,32 @@ public class StorageDAO {
 		}
 		
 		//****히스토리 최신순으로 5개 보여주기 : 영상 id 5개 추출 ****
-//		public ArrayList<StorageVO> HistoryList(String user_id) {
-//			ArrayList<StorageVO> list = new ArrayList<StorageVO>();
-//			conn = getConn();
-//			String sql = "select media_id from storage where user_id = ?, 
-//		playtime is not null, order by 시청날짜 desc limit 5";
-//			try {
-//				pst = conn.prepareStatement(sql);
-//				pst.setString(1, media_id);
-//				rs = pst.executeQuery();
-//				while (rs.next()) {
-//					String reple_id = rs.getString(1);
-//					String user_id = rs.getString(2);
-//					media_id = rs.getString(3);
-//					String content = rs.getString(4);
-//					RepleVO vo = new RepleVO(reple_id, user_id, media_id, content);
-//					list.add(vo);
-//
-//				}
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			}finally {
-//				close();
-//			}
-//
-//			return list;
-//		}
+		public ArrayList<StorageVO> HistoryList(String user_id) {
+			ArrayList<StorageVO> list = new ArrayList<StorageVO>();
+			conn = getConn();
+			String sql = "select media_id from storage where user_id = ? and playtime is not null order by 시청날짜 desc limit 5";
+			try {
+				pst = conn.prepareStatement(sql);
+				pst.setString(1, user_id);
+				rs = pst.executeQuery();
+				while (rs.next()) {
+					user_id = rs.getString(1);
+					String media_id = rs.getString(2);
+					String playtime = rs.getString(3);
+					String upcheck = rs.getString(4);
+					String visit_time = rs.getString(5);
+					StorageVO vo = new StorageVO();
+					list.add(vo);
+
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close();
+			}
+
+			return list;
+		}
 		
 		
 		

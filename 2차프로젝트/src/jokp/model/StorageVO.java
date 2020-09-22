@@ -1,21 +1,19 @@
 package jokp.model;
 
-import java.sql.Timestamp;
-
 public class StorageVO {
 	
 	private String user_id;
 	private String media_id;
-	private Timestamp playtime;
+	private String playtime;
 	private char upcheck;
-	private Timestamp visit_time;
+	private String visit_time;
 	//재생했던 날짜 저장하는게 없다...db에 컬럼추가해야된다...!
 	
 	
 	
 	public StorageVO() {
 	}
-	public StorageVO(String user_id, String media_id, Timestamp playtime, char upcheck, Timestamp visit_time) {
+	public StorageVO(String user_id, String media_id, String playtime, char upcheck, String visit_time) {
 		this.user_id = user_id;
 		this.media_id = media_id;
 		this.playtime = playtime;
@@ -34,10 +32,10 @@ public class StorageVO {
 	public void setMedia_id(String media_id) {
 		this.media_id = media_id;
 	}
-	public Timestamp getPlaytime() {
+	public String getPlaytime() {
 		return playtime;
 	}
-	public void setPlaytime(Timestamp playtime) {
+	public void setPlaytime(String playtime) {
 		this.playtime = playtime;
 	}
 	public char getUpcheck() {
@@ -46,10 +44,10 @@ public class StorageVO {
 	public void setUpcheck(char upcheck) {
 		this.upcheck = upcheck;
 	}
-	public Timestamp getVisit_time() {
+	public String getVisit_time() {
 		return visit_time;
 	}
-	public void setVisit_time(Timestamp visit_time) {
+	public void setVisit_time(String visit_time) {
 		this.visit_time = visit_time;
 	}
 	

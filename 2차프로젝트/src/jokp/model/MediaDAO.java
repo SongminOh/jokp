@@ -125,11 +125,9 @@ public class MediaDAO {
 			public ArrayList<MediaVO> mediaSearch(String keyword) {
 				ArrayList<MediaVO> list = new ArrayList<MediaVO>();
 				conn = getConn();
-				String sql = "select * from media where title like %?% or channel like %?%";
+				String sql = "select * from media where title like '%"+keyword+"%' or channel like '%"+keyword+"%'";
 				try {
 					pst = conn.prepareStatement(sql);
-					pst.setString(1,keyword);
-					pst.setString(2,keyword);
 					rs = pst.executeQuery();
 					while (rs.next()) {
 						

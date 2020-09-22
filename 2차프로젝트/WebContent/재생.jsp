@@ -1,3 +1,7 @@
+<%@page import="java.time.LocalDateTime"%>
+<%@page import="java.sql.Time"%>
+<%@page import="jokp.model.StorageVO"%>
+<%@page import="jokp.model.StorageDAO"%>
 <%@page import="javax.websocket.Session"%>
 <%@page import="jokp.model.MediaVO"%>
 <%@page import="jokp.model.MediaDAO"%>
@@ -9,6 +13,16 @@ String media_id = request.getParameter("media_id");
 
 MediaDAO dao = new MediaDAO();
 MediaVO vo = dao.mediainfoList(media_id);
+//store에 본 영상 저장
+StorageDAO st_dao = new StorageDAO();
+StorageVO st_vo = new StorageVO();
+st_vo.setMedia_id(media_id);
+//영상 본 시간 저장
+LocalDateTime currentDateTime = LocalDateTime.now();
+String visit_time = "" + currentDateTime;
+st_vo.setVisit_time(visit_time);
+st_vo.setPlaytime(null);
+st_dao.storageInsert(st_vo);
 %>
 <!DOCTYPE html>
 <html>
