@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$.ajax({
-  		url : "/2Â÷ÇÁ·ÎÁ§Æ®/jsonmedia",
+  		url : "/2ì°¨í”„ë¡œì íŠ¸/jsonmedia",
   		type : "get",
   		dataType : "json",
   		success : result,
@@ -19,11 +19,11 @@ $(document).ready(function(){
 function result(data){
 	  var str = "<table border='0'>";
 	  
-	  $.each(data, function(index,obj){ //object¿¡¼­ ¿ä¼Ò »©´Â¹ı obj.num
+	  $.each(data, function(index,obj){ //objectì—ì„œ ìš”ì†Œ ë¹¼ëŠ”ë²• obj.num
 		  str += "<tr>";
-		  str += "<td><a href='/2Â÷ÇÁ·ÎÁ§Æ®/Àç»ı.jsp?media_id="+obj.media_id+"'><img src='"+obj.thumbnails+"''</a></td>";
+		  str += "<td><a href='/2ì°¨í”„ë¡œì íŠ¸/ì¬ìƒ.jsp?media_id="+obj.media_id+"'><img src='"+obj.thumbnails+"''</a></td>";
 		  str += "</tr><tr>"
-		  str += "<td><a href='/2Â÷ÇÁ·ÎÁ§Æ®/Àç»ı.jsp?media_id="+obj.media_id+"'>"+obj.title+"</a></td>";
+		  str += "<td><a href='/2ì°¨í”„ë¡œì íŠ¸/ì¬ìƒ.jsp?media_id="+obj.media_id+"'>"+obj.title+"</a></td>";
 		  str += "</tr>";	  
 	  });
 	  str += "</table>"
@@ -33,11 +33,11 @@ function result(data){
 </script>
 </head>
 <body>
-<form action="/2Â÷ÇÁ·ÎÁ§Æ®/mediasearch">
-<input type="text" id="search" name="search" placeholder="°Ë»ö¾î ÀÔ·Â"/>
-<input type="submit" value="°Ë»ö" />
+<form action="/2ì°¨í”„ë¡œì íŠ¸/mediasearch">
+<input type="text" id="search" name="search" placeholder="ê²€ìƒ‰ì–´ ì…ë ¥"/>
+<input type="submit" value="ê²€ìƒ‰" />
 </form>
-<div id="list">* ¿©±â¿¡ ¿µ»ó ¸®½ºÆ®°¡ Ãâ·ÂµË´Ï´Ù *</div>
+<div id="list">* ì—¬ê¸°ì— ì˜ìƒ ë¦¬ìŠ¤íŠ¸ê°€ ì¶œë ¥ë©ë‹ˆë‹¤ *</div>
 <div id="show"></div>
 
 </body>

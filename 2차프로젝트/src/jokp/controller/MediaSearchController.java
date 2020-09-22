@@ -16,7 +16,7 @@ import jokp.model.MediaVO;
 @WebServlet("/mediasearch")
 public class MediaSearchController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("euc-kr");
+	request.setCharacterEncoding("utf-8");
 	String keyword = request.getParameter("search");
 	System.out.println(keyword);
 	MediaDAO dao = new MediaDAO();
