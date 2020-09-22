@@ -15,7 +15,7 @@ public class MediaDAO {
 	// 조회수 올라가는거 : viewcntUpdate
 	// 키워드 기반 검색 : mediaSearch
 	// 모든 영상 정보 : mediaAllList
-	
+	//
 	
 	private Connection conn;
 	private PreparedStatement pst;

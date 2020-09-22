@@ -18,7 +18,7 @@ public class MediaVO {
 	private String thumbnails;
 	private String category;
 	
-	
+	//
 	
 	public MediaVO() {
 	}
