@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 public class MediaVO {
+	//
 	private String media_id;
 	private String title;
 	private String channel;

@@ -45,7 +45,7 @@ function list(){
 		data : {"media_id" : media_id},
 		dataType : "json",
 		success : result,
-		error : function(){ alert("error!!2")}
+		error : function(){ alert("error!!2"); }
 		 
 	 });
 	  
