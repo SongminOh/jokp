@@ -56,8 +56,8 @@ public class StorageDAO {
 				pst.setString(1, vo.getUser_id());
 				pst.setString(2, vo.getMedia_id());
 				pst.setString(3, vo.getPlaytime());
-				pst.setLong(4, vo.getUpcheck());
-				pst.setString(5, vo.getVisit_time());
+				pst.setString(4, vo.getVisit_time());
+				pst.setLong(5, vo.getUpcheck());
 
 				cnt = pst.executeUpdate();
 				

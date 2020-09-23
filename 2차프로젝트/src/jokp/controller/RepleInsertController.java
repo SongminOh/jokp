@@ -20,22 +20,19 @@ import jokp.model.UsersVO;
 public class RepleInsertController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String user_id = request.getParameter("id");
-		String reple_content = request.getParameter("reple");
+		String user_id = request.getParameter("user_id");
 		String media_id = request.getParameter("media_id");
+		String reple_content = request.getParameter("reple");
+		System.out.println(user_id);
 		RepleDAO dao = new RepleDAO();
 		int cnt = dao.repleInsert(user_id, media_id, reple_content);
-		
-		
-		PrintWriter out = response.getWriter();
-		
 		if(cnt>0) {
-			response.sendRedirect("/2차프로젝트/재생.jsp");
-			out.print("성공 *^ㅡ^*");
+			System.out.println("성공");
 		}else {
-			//실패
-			out.print("댓글작성실패");
+			System.out.println("실패");
 		}
+		
+		
 		
 		
 	}
