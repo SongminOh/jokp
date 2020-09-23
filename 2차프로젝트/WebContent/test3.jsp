@@ -21,7 +21,7 @@
 		  //alert(pre);
 		  
 		  $.ajax({
-				 url : "/2차프로젝트/preferenceset", 
+				 url : "/jokp/preferenceset", 
 				 type : "post",
 				 data : {"pre" : pre, "id" : id},
 				 dataType : "text",
@@ -44,7 +44,7 @@
 <body>
 
 
-<form action = '/2차프로젝트/preferenceset' method='get'>
+<form action = '/jokp/preferenceset' method='get'>
 <input type ='hidden' name = 'user_id' value = '${vo.user_id}'> 
 ${vo.user_id}님의 선호 카테고리를 설정해주세요.
 <input type="button" value = "설정" id="btn1">

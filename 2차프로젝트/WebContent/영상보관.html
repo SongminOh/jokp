@@ -7,7 +7,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$.ajax({
-  		url : "/2차프로젝트/jsonmedia",
+  		url : "/jokp/jsonmedia",
   		type : "get",
   		dataType : "json",
   		success : result,
@@ -21,9 +21,9 @@ function result(data){
 	  
 	  $.each(data, function(index,obj){ //object에서 요소 빼는법 obj.num
 		  str += "<tr>";
-		  str += "<td><a href='/2차프로젝트/재생.jsp?media_id="+obj.media_id+"'><img src='"+obj.thumbnails+"''</a></td>";
+		  str += "<td><a href='/jokp/재생.jsp?media_id="+obj.media_id+"'><img src='"+obj.thumbnails+"''</a></td>";
 		  str += "</tr><tr>"
-		  str += "<td><a href='/2차프로젝트/재생.jsp?media_id="+obj.media_id+"'>"+obj.title+"</a></td>";
+		  str += "<td><a href='/jokp/재생.jsp?media_id="+obj.media_id+"'>"+obj.title+"</a></td>";
 		  str += "</tr>";	  
 	  });
 	  str += "</table>"
@@ -33,12 +33,12 @@ function result(data){
 </script>
 </head>
 <body>
-<form action="/2차프로젝트/mediasearch">
+<form action="/jokp/mediasearch">
 <input type="text" id="search" name="search" placeholder="검색어 입력"/>
 <input type="submit" value="검색" />
 </form>
 <br>
-<form action="/2차프로젝트/chart.jsp">
+<form action="/jokp/chart.jsp">
 <input type="submit" value="통계보기">
 <input type="hidden" name="user_id" value="dptmf35">
 </form>

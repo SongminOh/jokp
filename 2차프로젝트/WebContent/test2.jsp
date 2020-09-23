@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action = '/2차프로젝트/timeset' method='post'>
+<form action = '/jokp/timeset' method='post'>
 <input type ='hidden' id='user_id' name = 'user_id' value = '${vo.user_id}'> 
 <table>
 			<tr>

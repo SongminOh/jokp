@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action = '/2차프로젝트/userinfo' method='get'>
+<form action = '/jokp/userinfo' method='get'>
 <input type ='hidden' name = 'user_id' value = '${user_id}'> 
 ${user_id}님이 로그인하셨습니다.
 <input type = 'submit' value = '시간설정하기'>

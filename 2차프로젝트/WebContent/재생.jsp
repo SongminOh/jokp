@@ -37,7 +37,7 @@ $(document).ready(function(){
 		  var playtime =  $("#playtime").val();
 		  var like =  1;
 		  $.ajax({
-				 url : "/2차프로젝트/storageinsert", 
+				 url : "/jokp/storageinsert", 
 				 type : "post",
 				 data : {"user_id" : user_id, "media_id" : media_id, "visit_time" : visit_time, "playtime" : playtime, "like" : like},
 				 dataType : "text",
@@ -54,7 +54,7 @@ $(document).ready(function(){
 		  var playtime =  $("#playtime").val();
 		  var like = 0;
 		$.ajax({
-			 url : "/2차프로젝트/storageinsert", 
+			 url : "/jokp/storageinsert", 
 			 type : "post",
 			 data : {"user_id" : user_id, "media_id" : media_id, "visit_time" : visit_time, "playtime" : playtime, "like" : like},
 			 dataType : "text",
@@ -69,7 +69,7 @@ $(document).ready(function(){
 		  var media_id = $("#media_id").val();
 		  alert(reple, id, media_id)
 		  $.ajax({
-				 url : "/2차프로젝트/repleinsert", 
+				 url : "/jokp/repleinsert", 
 				 type : "post",
 				 data : {"media_id" : media_id, "user_id" : user_id, "reple" : reple },
 				 dataType : "text",
@@ -86,7 +86,7 @@ $(document).ready(function(){
 function list(){
 	var media_id = $("media_id").val();
 	  $.ajax({
-		url : "/2차프로젝트/jsonreple",
+		url : "/jokp/jsonreple",
 		type : "get",
 		data : {"media_id" : media_id},
 		dataType : "json",
@@ -124,7 +124,7 @@ function result(data){
 <br>게시일자 : ${vo.dates }
 <br>조회수 : ${vo.views }
 <br>좋아요 : ${vo.up } 싫어요 : ${vo.down }
-<br><input type ="button" value="뒤로" onclick="location.href='/2차프로젝트/영상보관.html'">
+<br><input type ="button" value="뒤로" onclick="location.href='/jokp/영상보관.html'">
 <hr>
 <input type="button" id="likebtn" value="좋아요">
 <input type="button" id="hatebtn" value="싫어요">
@@ -143,7 +143,7 @@ function result(data){
 				</tr>
 			</table>
 	</div>
-	<a href="/2차프로젝트/repletest.jsp?media_id=${vo.media_id}">*여기에 댓글 리스트 출력*</a>
+	<a href="/jokp/repletest.jsp?media_id=${vo.media_id}">*여기에 댓글 리스트 출력*</a>
 	<div name="replelist" id="replelist">
 	</div>
 </body>

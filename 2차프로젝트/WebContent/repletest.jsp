@@ -36,6 +36,7 @@ $(document).ready(function(){
 
 function list(){
 	var media = $("#media_id").val();
+	alert(media);
 	$.ajax({
   		url : "/jokp/jsonreple",
   		type : "post",
@@ -68,7 +69,6 @@ function result(data){
 </script>
 </head>
 <body>
-${media_id }
 					<input type="hidden" name="media_id" id="media_id" value="${media_id}">
 					<input type="hidden" name="user_id" id="user_id" value="dptmf35">
 <div>
