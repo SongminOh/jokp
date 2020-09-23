@@ -28,6 +28,8 @@ String visit_time = "" + currentDateTime;
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+		
+	
 	  $("#likebtn").click(function(){
 		  var user_id =  $("#user_id").val();
 		  var media_id =  $("#media_id").val();
@@ -61,19 +63,24 @@ $(document).ready(function(){
 		 });  
 	  });
 	  
-	  $("#btn1").click(function(){
+	  $("#btn").click(function(){
 		  var reple = $("#reple").val();
 		  var id = $("#user_id").val();
 		  var media_id = $("#media_id").val();
+		  alert(reple, id, media_id)
 		  $.ajax({
 				 url : "/2차프로젝트/repleinsert", 
-				 type : "get",
-				 data : {"reple" : reple, "user_id" : user_id, "media_id" : media_id},
+				 type : "post",
+				 data : {"media_id" : media_id, "user_id" : user_id, "reple" : reple },
 				 dataType : "text",
-				 success : alert("success"),
+				 success : list,
 				 error : function(){ alert("error!1");}
 			 });
 	  });
+	  
+	  
+	  
+	  
 	  
 });
 function list(){
@@ -91,8 +98,7 @@ function list(){
 }
 //콜백 함수 선언
 function result(data){
-	var str = "<table border='0'>";
-	  
+	var str = "<table border='0'>";  
 	  $.each(data, function(index,obj){ //object에서 요소 빼는법 obj.num
 		  str += "<tr>";
 		  str += "<td>작성자id</td>";
@@ -133,11 +139,11 @@ function result(data){
 			<table>
 				<tr>
 					<td><input type="text" name="reple" id="reple"></td>
-					<td><input type="button" value="작성" id="btn1"></td>
+					<td><input type="button" value="작성" id="btn"></td>
 				</tr>
 			</table>
 	</div>
-	*여기에 댓글 리스트 출력*
+	<a href="/2차프로젝트/repletest.jsp?media_id=${vo.media_id}">*여기에 댓글 리스트 출력*</a>
 	<div name="replelist" id="replelist">
 	</div>
 </body>

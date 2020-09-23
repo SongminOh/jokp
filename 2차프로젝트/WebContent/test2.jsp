@@ -9,11 +9,11 @@
 </head>
 <body>
 <form action = '/2차프로젝트/timeset' method='post'>
-<input type ='hidden' name = 'user_id' value = '${vo.user_id}'> 
+<input type ='hidden' id='user_id' name = 'user_id' value = '${vo.user_id}'> 
 <table>
 			<tr>
 				<td>아이디</td>
-				<td>${user_id}</td>
+				<td>${vo.user_id}</td>
 			</tr>
 			<tr>
 				<td>이름</td>

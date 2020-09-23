@@ -25,8 +25,7 @@ public class UserPreferenceSetController extends HttpServlet {
 		
 		// Model°ú ¿¬µ¿(DAO)
 		UserDAO dao = new UserDAO();
-		UsersVO vo = new UsersVO();
-		vo.setUser_id(user_id);
+		UsersVO vo = dao.userinfoList(user_id);
 		vo.setPreference(preference);
 		int cnt = dao.preferenceUpdate(vo);
 	

@@ -18,12 +18,12 @@ import jokp.model.RepleVO;
 @WebServlet("/jsonreple")
 public class JsonRepleArrayController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.setCharacterEncoding("utf-8");
 		String media_id = request.getParameter("media_id");
+		System.out.println(media_id);
 		RepleDAO dao = new RepleDAO();
 		ArrayList<RepleVO> list = dao.repleList(media_id);
 		// Json - array 변경 : Gson API이용하기!
-		
 		Gson g =new Gson();
 		String json = g.toJson(list);
 		response.setContentType("text/json;charset=euc-kr");

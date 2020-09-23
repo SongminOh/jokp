@@ -1,3 +1,4 @@
+<%@page import="jokp.model.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -44,20 +45,17 @@
 
 
 <form action = '/2차프로젝트/preferenceset' method='get'>
-<input type ='hidden' name = 'user_id' value = '${user_id}'> 
- ${user_id}님의 선호 카테고리를 설정해주세요.
+<input type ='hidden' name = 'user_id' value = '${vo.user_id}'> 
+${vo.user_id}님의 선호 카테고리를 설정해주세요.
 <input type="button" value = "설정" id="btn1">
 
 <div id="input" style = "visibility : hidden;">
-<input type = 'text' name = 'pre' id = 'pre'/>
+<input type = 'text' name = 'pre' id = 'pre' placeholder= '${vo.preference}'/>
 <input type ='hidden' name = 'id' id = 'id' value = '${user_id}'> 
 <input type = "button" value = "제출" id="btn2"/>
 <p id="show"></p>
 </div>
-
-
 </form>
-
 
 </body>
 </html>

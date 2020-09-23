@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import jokp.model.StorageDAO;
 import jokp.model.StorageVO;
 
-/**
- * Servlet implementation class StorageInsertController
- */
 @WebServlet("/storageinsert")
 public class StorageInsertController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,7 +21,7 @@ public class StorageInsertController extends HttpServlet {
 		char upcheck = (char)Integer.parseInt(request.getParameter("like"));
 		
 		StorageDAO dao = new StorageDAO();
-		StorageVO vo = new StorageVO(user_id, media_id, playtime, upcheck, visit_time);
+		StorageVO vo = new StorageVO("dptmf35", media_id, playtime, upcheck, visit_time);
 		int cnt = dao.storageInsert(vo);
 //		if(cnt>0) {
 //			System.out.println("인서트 완료.");
