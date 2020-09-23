@@ -105,7 +105,7 @@
 </script>
 				</head>
 				<body>
-					<div id="chart_div" style="width: 1500px; height: 800px;"></div>
+					<div id="chart_div" style="width: 1300px; height: 550px;"></div>
 				</body>
 
 
@@ -116,7 +116,7 @@
 
 <table class="tg">
 
-	<h1>전체 시청기록 기반</h1>
+	<h1>● 전체 시청기록 기반</h1>
 				<script type="text/javascript"
 						src="https://www.gstatic.com/charts/loader.js"></script>
 					<script type="text/javascript">
@@ -164,12 +164,11 @@
 		var data = new google.visualization.DataTable();
 		data.addColumn('string', 'Topping');
 		data.addColumn('number', 'Slices');
-		data.addRows([ [ 'Mushrooms', 1 ], [ 'Onions', 1 ], [ 'Olives', 2 ],
-				[ 'Zucchini', 2 ], [ 'Pepperoni', 1 ] ]);
-
+		data.addRows([ [ '얼굴이 잘생김', 2 ], [ '싱그로움', 2 ], [ '상큼한성격', 2 ],
+			[ '카리스마', 0 ], [ '눈웃음', 3 ] ]);
 		// Set options for Sarah's pie chart.
 		var options = {
-			title : '전체 시청기록 기반 대분류',
+			title : '형호의 매력 분포도',
 			width : 500,
 			height : 500
 		};
@@ -177,6 +176,85 @@
 		// Instantiate and draw the chart for Sarah's pizza.
 		var chart = new google.visualization.PieChart(document
 				.getElementById('Sarah_chart_div'));
+		chart.draw(data, options);
+	}
+
+	// Callback that draws the pie chart for Anthony's pizza.
+	function drawAnthonyChart() {
+
+		// Create the data table for Anthony's pizza.
+		var data = new google.visualization.DataTable();
+		data.addColumn('string', 'Topping');
+		data.addColumn('number', 'Slices');
+		data.addRows([ [ '얼굴이 잘생김', 2 ], [ '싱그로움', 2 ], [ '상큼한성격', 2 ],
+				[ '카리스마', 0 ], [ '눈웃음', 3 ] ]);
+
+		// Set options for Anthony's pie chart.
+		var options = {
+			title : '소분류',
+			width : 500,
+			height : 500
+		};
+
+		// Instantiate and draw the chart for Anthony's pizza.
+		var chart = new google.visualization.PieChart(document
+				.getElementById('Anthony_chart_div'));
+		chart.draw(data, options);
+	}
+</script>
+	</head>
+
+
+
+
+
+	<body>
+		<!--Table and divs that hold the pie charts-->
+		<table class="columns" style="width:30%">
+			<tr>
+				<td width=500 ><div id="Sarah_chart_div" style="border: 1px solid #ccc" ></div></td>
+				<td width=500><div id="Anthony_chart_div" style="border: 1px solid #ccc"></div></td>
+			</tr>
+		</table>
+	</body> 
+	
+	
+	<head>
+	<h1>● 좋아요 영상의 카테고리 기반 </h1>
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+	// Load Charts and the corechart package.
+	google.charts.load('current', {
+		'packages' : [ 'corechart' ]
+	});
+
+	// Draw the pie chart for Sarah's pizza when Charts is loaded.
+	google.charts.setOnLoadCallback(drawSarahChart);
+
+	// Draw the pie chart for the Anthony's pizza when Charts is loaded.
+	google.charts.setOnLoadCallback(drawAnthonyChart);
+
+	// Callback that draws the pie chart for Sarah's pizza.
+	function drawSarahChart() {
+
+		// Create the data table for Sarah's pizza.
+		var data = new google.visualization.DataTable();
+		data.addColumn('string', 'Topping');
+		data.addColumn('number', 'Slices');
+		data.addRows([ [ 'Mushrooms', 1 ], [ 'Onions', 1 ], [ 'Olives', 2 ],
+				[ 'Zucchini', 2 ], [ 'Pepperoni', 1 ] ]);
+
+		// Set options for Sarah's pie chart.
+		var options = {
+			title : '대분류',
+			width : 500,
+			height : 500
+		};
+
+		// Instantiate and draw the chart for Sarah's pizza.
+		var chart = new google.visualization.PieChart(document
+				.getElementById('Sarah_chart_div2'));
 		chart.draw(data, options);
 	}
 
@@ -198,23 +276,33 @@
 		};
 
 		// Instantiate and draw the chart for Anthony's pizza.
-		var chart = new google.visualization.PieChart(document
-				.getElementById('Anthony_chart_div'));
+		var chart= new google.visualization.PieChart(document
+				.getElementById('Anthony_chart_div2'));
 		chart.draw(data, options);
 	}
 </script>
 	</head>
 
+
+
+
+
 	<body>
 		<!--Table and divs that hold the pie charts-->
-		<table class="columns">
+		<table class="columns" style="width:30%">
 			<tr>
-				<td><div id="Sarah_chart_div" style="border: 1px solid #ccc"></div></td>
-				<td><div id="Anthony_chart_div" style="border: 1px solid #ccc"></div></td>
+				<td width=500 ><div id="Sarah_chart_div2" style="border: 1px solid #ccc" ></div></td>
+				<td width=500><div id="Anthony_chart_div2" style="border: 1px solid #ccc"></div></td>
 			</tr>
 		</table>
-	</body>
+	</body> 
+	
+	
+	
+	
+	
 
+			
 
 
 
