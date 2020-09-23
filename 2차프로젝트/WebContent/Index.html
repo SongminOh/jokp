@@ -115,9 +115,12 @@
 						</div>
 						</li>
 						<li><a class="login"> <input type="button" value="로그인"
-							onclick="showPopup();" /> <span class="set"><img
-								src="images/set.png" alt="" /></span>
-						</a>
+							onclick="showPopup();" /> <span class="set"></span>
+						<class="Update"> <input type ="button" value= "설   정" onclick="showPopup2();"/> <span class="set"> 
+							</span></a>
+					
+						
+						</li>
 						</li>
 						<li><a href="#menu">Menu</a></li>
 					</ul>
@@ -373,6 +376,10 @@
 	<script language="javascript">
 		function showPopup() {
 			window.open("login.html", "a",
+					"width=500, height=500, left=600, top=100");
+		}
+		function showPopup2() {
+			window.open("Update.html", "a",
 					"width=500, height=500, left=600, top=100");
 		}
 	</script>
