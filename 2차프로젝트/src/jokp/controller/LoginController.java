@@ -33,10 +33,10 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("user_id", user_id); //객체바인딩(session)
 //			UsersVO vo = dao.userinfoList(user_id);
 //			request.setAttribute("vo", vo);
-			response.sendRedirect("test.jsp"); 
+			response.sendRedirect("mainpage.jsp"); 
 		}else {
 			//회원인증 실패! 
-			response.sendRedirect("test.html");
+			System.out.println("실패!");
 		}	
 		
 		

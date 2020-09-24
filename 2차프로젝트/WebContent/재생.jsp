@@ -24,7 +24,7 @@ String visit_time = "" + currentDateTime;
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>JOKP</title>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -115,16 +115,23 @@ function result(data){
 </head>
 <body>
 
+<a href="/jokp/main.html" class="logo"> <span class="symbol">
+<img src="images/logo.png" alt="" /></span></a>
+						
+
+
+
+
 
 <br><c:set var="vo" value="<%=vo %>"/> 
-<iframe width="427" height="240" src="${vo.url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+<iframe width="854" height="480" src="${vo.url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 <br>${vo.title }
 <br>채널명 : ${vo.channel } 
 <br>게시일자 : ${vo.dates }
 <br>조회수 : ${vo.views }
 <br>좋아요 : ${vo.up } 싫어요 : ${vo.down }
-<br><input type ="button" value="뒤로" onclick="location.href='/jokp/영상보관.html'">
+<br><input type ="button" value="뒤로" onclick="location.href='/jokp/main.html'">
 <hr>
 <input type="button" id="likebtn" value="좋아요">
 <input type="button" id="hatebtn" value="싫어요">

@@ -89,7 +89,7 @@ public class MediaDAO {
 			public ArrayList<MediaVO> mediaAllList() {
 				ArrayList<MediaVO> list = new ArrayList<MediaVO>();
 				conn = getConn();
-				String sql = "select * from media";
+				String sql = "select * from media order by media_id";
 				try {
 					pst = conn.prepareStatement(sql);
 					rs = pst.executeQuery();

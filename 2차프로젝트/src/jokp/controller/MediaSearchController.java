@@ -17,12 +17,12 @@ import jokp.model.MediaVO;
 public class MediaSearchController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	request.setCharacterEncoding("utf-8");
-	String keyword = request.getParameter("search");
+	String keyword = request.getParameter("search_keyword");
 	System.out.println(keyword);
 	MediaDAO dao = new MediaDAO();
 	ArrayList<MediaVO> list = dao.mediaSearch(keyword);
 	request.setAttribute("list", list);
-	RequestDispatcher rd = request.getRequestDispatcher("검색결과.jsp");
+	RequestDispatcher rd = request.getRequestDispatcher("searchresult.jsp");
 	rd.forward(request, response);
 	
 	}

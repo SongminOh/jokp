@@ -2234,7 +2234,7 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 
 .tiles article>.image img {
 	display: block;
-	width: 200%;
+	width: 100%;
 }
 
 . /* tiles article>.image:before {
