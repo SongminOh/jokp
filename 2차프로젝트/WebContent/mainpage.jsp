@@ -15,7 +15,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$.ajax({
-  		url : "/jokp/jsonmedia",
+  		url : "/jokp/jsonuserpreference",
   		type : "get",
   		dataType : "json",
   		success : result,
@@ -186,7 +186,7 @@ function result(data){
 
 				<section class="tiles" id="tiles">
 					<!-- <i class="xi-angle-left"></i> -->
-					여기에 출력
+					
 				</section>
 
 				<header>
