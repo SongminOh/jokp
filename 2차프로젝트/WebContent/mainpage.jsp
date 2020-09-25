@@ -22,6 +22,14 @@ $(document).ready(function(){
   		error : function(){ alert("error!!"); }
 	});
 	
+	$.ajax({
+  		url : "/jokp/jsonuserpreference2",
+  		type : "get",
+  		dataType : "json",
+  		success : result2,
+  		error : function(){ alert("error!!"); }
+	});
+	
 });
 
 function result(data){
@@ -34,6 +42,18 @@ function result(data){
 		  str += "<p>"+ obj.hashtag + "</p></article>";
 	  });
 		  $("#tiles").html(str);
+}
+
+function result2(data){
+	  var str = "";
+	  $.each(data, function(main,obj){ //object에서 요소 빼는법 obj.num
+		  str += "<article class='style"+obj.media_id+"'>";
+		  str += "<div class='image'>";
+		  str += "<a href='/jokp/재생.jsp?media_id="+obj.media_id+"'><img src='"+obj.thumbnails+"'/></a></div>";
+		  str += "<h2>"+ obj.title +"</h2>"
+		  str += "<p>"+ obj.hashtag + "</p></article>";
+	  });
+		  $("#tiles2").html(str);
 }
 
 </script>
@@ -190,123 +210,14 @@ function result(data){
 				</section>
 
 				<header>
-					<h1>재생시간 조합 추천</h1>
+					<h1>나와 유사 직업/나이인 사람이 많이 보는 영상</h1>
 				</header>
 
-				<section class="tiles">
-
-					<article class="style1">
-
-						<span class="image"> <img src="images/img05.jpg" alt="" />
-
-						</span> <a href="Media.html">
-							<h2>단어단어단어단어단어단어단어</h2>
-							<div class="content">
-								<!-- <p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-									veroeros et feugiat.</p> -->
-							</div>
-						</a>
-					</article>
-					<article class="style2">
-						<span class="image"> <img src="images/img01.jpg" alt="" />
-						</span> <a href="Media.html">
-							<h2>Ipsum</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-									veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style3">
-						<span class="image"> <img src="images/img02.jpg" alt="" />
-						</span> <a href="Media.html">
-							<h2>Dolor</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-									veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style1">
-						<span class="image"> <img src="images/img03.jpg" alt="" />
-						</span> <a href="Media.html">
-							<h2>Nullam</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-									veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style5">
-						<span class="image"> <img src="images/img04.jpg" alt="" />
-						</span> <a href="Media.html">
-							<h2>Ultricies</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-									veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-				</section>
-
-				<header>
-					<h1>직업별/나이별 추천</h1>
-				</header>
-
-				<section class="tiles">
-
-					<article class="style1">
-						<span class="image"> <img src="images/img05.jpg" alt="" />
-						</span> <a href="Media.html">
-							<h2>단어단어단어단어단어단어단어</h2>
-							<div class="content">
-								<!-- <p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-									veroeros et feugiat.</p> -->
-							</div>
-						</a>
-					</article>
-					<article class="style2">
-						<span class="image"> <img src="images/img06.jpg" alt="" />
-						</span> <a href="Media.html">
-							<h2>Ipsum</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-									veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style3">
-						<span class="image"> <img src="images/img01.jpg" alt="" />
-						</span> <a href="Media.html">
-							<h2>Dolor</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-									veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style1">
-						<span class="image"> <img src="images/img02.jpg" alt="" />
-						</span> <a href="Media.html">
-							<h2>Nullam</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-									veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style5">
-						<span class="image"> <img src="images/img03.jpg" alt="" />
-						</span> <a href="Media.html">
-							<h2>Ultricies</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-									veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
+				<section class="tiles" id="tiles2">
 
 				</section>
+
+			
 			</div>
 		</div>
 

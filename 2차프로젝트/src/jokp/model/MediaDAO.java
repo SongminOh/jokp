@@ -89,7 +89,7 @@ public class MediaDAO {
 			public ArrayList<MediaVO> mediaAllList() {
 				ArrayList<MediaVO> list = new ArrayList<MediaVO>();
 				conn = getConn();
-				String sql = "select * from media order by media_id";
+				String sql = "select * from (select * from media order by dbms_random.value)";
 				try {
 					pst = conn.prepareStatement(sql);
 					rs = pst.executeQuery();
@@ -215,6 +215,87 @@ public class MediaDAO {
 				return cnt;
 				
 			}
+			
+			
+			
+			
+			
+			
+			//****전체 영상 정보****
+			public ArrayList<MediaVO> MyMediaList1(String user_id) {
+				ArrayList<MediaVO> list = new ArrayList<MediaVO>();
+				conn = getConn();
+				String sql = "select * from media where media_id in (select media_id from temp where user_id = ? and list = 0) order by media_id";
+				try {
+					pst = conn.prepareStatement(sql);
+					pst.setString(1,user_id);
+					rs = pst.executeQuery();
+					while (rs.next()) {
+						
+						String media_id = rs.getString(1);
+						String title = rs.getString(2);
+						String channel = rs.getString(3);
+						int up = rs.getInt(4);
+						int down = rs.getInt(5);
+						int views = rs.getInt(6);
+						String running_time = rs.getString(7);
+						Date dates = rs.getDate(8);
+						String hashtag = rs.getString(9);
+						String url = rs.getString(10);
+						String thumbnails = rs.getString(11);
+						String category = rs.getString(12);
+						
+						MediaVO vo = new MediaVO(media_id, title, channel, up, down, views, running_time, dates, hashtag, url, thumbnails, category);
+						list.add(vo);
+
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					close();
+				}
+
+				return list;
+			}	
+			
+			//****전체 영상 정보****
+			public ArrayList<MediaVO> MyMediaList2(String user_id) {
+				ArrayList<MediaVO> list = new ArrayList<MediaVO>();
+				conn = getConn();
+				String sql = "select * from media where media_id in (select media_id from temp where user_id = ? and list = 1) order by media_id";
+				try {
+					pst = conn.prepareStatement(sql);
+					pst.setString(1,user_id);
+					rs = pst.executeQuery();
+					while (rs.next()) {
+						
+						String media_id = rs.getString(1);
+						String title = rs.getString(2);
+						String channel = rs.getString(3);
+						int up = rs.getInt(4);
+						int down = rs.getInt(5);
+						int views = rs.getInt(6);
+						String running_time = rs.getString(7);
+						Date dates = rs.getDate(8);
+						String hashtag = rs.getString(9);
+						String url = rs.getString(10);
+						String thumbnails = rs.getString(11);
+						String category = rs.getString(12);
+						
+						MediaVO vo = new MediaVO(media_id, title, channel, up, down, views, running_time, dates, hashtag, url, thumbnails, category);
+						list.add(vo);
+
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					close();
+				}
+
+				return list;
+			}	
+			
+			
 			
 			
 	//****DB CLOSE기능****
