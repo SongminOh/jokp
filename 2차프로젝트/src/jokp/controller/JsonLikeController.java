@@ -14,22 +14,22 @@ import com.google.gson.Gson;
 
 import jokp.model.MediaDAO;
 import jokp.model.MediaVO;
-@WebServlet("/jsonuserpreference4")
-public class JsonUserPreferenceArrayController extends HttpServlet {
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		MediaDAO dao = new MediaDAO();
-		ArrayList<MediaVO> list = dao.MyMediaListM("dptmf35");
-		// Json - array 변경 : Gson API이용하기!
+@WebServlet("/jsonlike")
+public class JsonLikeController extends HttpServlet {
+
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		MediaDAO dao = new MediaDAO();
+		ArrayList<MediaVO> list = dao.MyLikeList("dptmf35");
+		// Json - array 변경 : Gson API이용하기!
 		
 				Gson g =new Gson();
 				String json = g.toJson(list);
 				response.setContentType("text/json;charset=euc-kr");
 				PrintWriter out=response.getWriter();
-				out.print(json);	
-		
-		
+				out.print(json);
+	
 	}
 
 }

@@ -125,7 +125,7 @@ public class MediaDAO {
 			public ArrayList<MediaVO> mediaSearch(String keyword) {
 				ArrayList<MediaVO> list = new ArrayList<MediaVO>();
 				conn = getConn();
-				String sql = "select * from media where title like '%"+keyword+"%' or channel like '%"+keyword+"%'";
+				String sql = "select * from media where title like '%"+keyword+"%' or channel like '%"+keyword+"%' or category like '%"+keyword+"%' or hashtag like '%"+keyword+"%'";
 				try {
 					pst = conn.prepareStatement(sql);
 					rs = pst.executeQuery();
@@ -295,7 +295,228 @@ public class MediaDAO {
 				return list;
 			}	
 			
+			//****전체 영상 정보****
+			//****전체 영상 정보****
+			public ArrayList<MediaVO> MyMediaList3(String user_id) {
+				ArrayList<MediaVO> list = new ArrayList<MediaVO>();
+				conn = getConn();
+				String sql = "select * from (select * from media where media_id in (select media_id from temp where user_id = ?) order by dates) where rownum <= 3";
+				try {
+					pst = conn.prepareStatement(sql);
+					pst.setString(1,user_id);
+					rs = pst.executeQuery();
+					while (rs.next()) {
+						
+						String media_id = rs.getString(1);
+						String title = rs.getString(2);
+						String channel = rs.getString(3);
+						int up = rs.getInt(4);
+						int down = rs.getInt(5);
+						int views = rs.getInt(6);
+						String running_time = rs.getString(7);
+						Date dates = rs.getDate(8);
+						String hashtag = rs.getString(9);
+						String url = rs.getString(10);
+						String thumbnails = rs.getString(11);
+						String category = rs.getString(12);
+						
+						MediaVO vo = new MediaVO(media_id, title, channel, up, down, views, running_time, dates, hashtag, url, thumbnails, category);
+						list.add(vo);
+
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					close();
+				}
+
+				return list;
+			}	
 			
+			
+			public ArrayList<MediaVO> MyHistoryList(String user_id) {
+				ArrayList<MediaVO> list = new ArrayList<MediaVO>();
+				conn = getConn();
+				String sql = "select * from (select * from media where media_id in (select media_id from (select * from storage where user_id = ? and upcheck not like '1' order by visit_time desc) where rownum<=5))";
+				try {
+					pst = conn.prepareStatement(sql);
+					pst.setString(1,user_id);
+					rs = pst.executeQuery();
+					while (rs.next()) {
+						
+						String media_id = rs.getString(1);
+						String title = rs.getString(2);
+						String channel = rs.getString(3);
+						int up = rs.getInt(4);
+						int down = rs.getInt(5);
+						int views = rs.getInt(6);
+						String running_time = rs.getString(7);
+						Date dates = rs.getDate(8);
+						String hashtag = rs.getString(9);
+						String url = rs.getString(10);
+						String thumbnails = rs.getString(11);
+						String category = rs.getString(12);
+						
+						MediaVO vo = new MediaVO(media_id, title, channel, up, down, views, running_time, dates, hashtag, url, thumbnails, category);
+						list.add(vo);
+
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					close();
+				}
+
+				return list;
+			}	
+			
+			public ArrayList<MediaVO> MyLikeList(String user_id) {
+				ArrayList<MediaVO> list = new ArrayList<MediaVO>();
+				conn = getConn();
+				String sql = "select * from media where media_id in (select media_id from storage where upcheck='1' and user_id = ?)";
+				try {
+					pst = conn.prepareStatement(sql);
+					pst.setString(1,user_id);
+					rs = pst.executeQuery();
+					while (rs.next()) {
+						
+						String media_id = rs.getString(1);
+						String title = rs.getString(2);
+						String channel = rs.getString(3);
+						int up = rs.getInt(4);
+						int down = rs.getInt(5);
+						int views = rs.getInt(6);
+						String running_time = rs.getString(7);
+						Date dates = rs.getDate(8);
+						String hashtag = rs.getString(9);
+						String url = rs.getString(10);
+						String thumbnails = rs.getString(11);
+						String category = rs.getString(12);
+						
+						MediaVO vo = new MediaVO(media_id, title, channel, up, down, views, running_time, dates, hashtag, url, thumbnails, category);
+						list.add(vo);
+
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					close();
+				}
+
+				return list;
+			}
+			
+			//****전체 영상 정보****
+			public ArrayList<MediaVO> MyMediaListM(String user_id) {
+				ArrayList<MediaVO> list = new ArrayList<MediaVO>();
+				conn = getConn();
+				String sql = "select * from media where media_id in (select media_id from temp where user_id = ? and list = 2) order by media_id";
+				try {
+					pst = conn.prepareStatement(sql);
+					pst.setString(1,user_id);
+					rs = pst.executeQuery();
+					while (rs.next()) {
+						
+						String media_id = rs.getString(1);
+						String title = rs.getString(2);
+						String channel = rs.getString(3);
+						int up = rs.getInt(4);
+						int down = rs.getInt(5);
+						int views = rs.getInt(6);
+						String running_time = rs.getString(7);
+						Date dates = rs.getDate(8);
+						String hashtag = rs.getString(9);
+						String url = rs.getString(10);
+						String thumbnails = rs.getString(11);
+						String category = rs.getString(12);
+						
+						MediaVO vo = new MediaVO(media_id, title, channel, up, down, views, running_time, dates, hashtag, url, thumbnails, category);
+						list.add(vo);
+
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					close();
+				}
+
+				return list;
+			}	
+			
+			
+			//****싫어요 눌렀을 때 다른 영상 추천****
+			public MediaVO othermediainfoList(String media_id) {
+				MediaVO vo = null;
+				conn = getConn();
+				String sql = "select * from(select * from media where category not like (select category from media where media_id = ?) order by dbms_random.random) where rownum = 1";
+				try {
+					pst = conn.prepareStatement(sql);
+					pst.setString(1, media_id);
+					rs = pst.executeQuery();
+					if (rs.next()) {
+						
+						media_id = rs.getString(1);
+						String title = rs.getString(2);
+						String channel = rs.getString(3);
+						int up = rs.getInt(4);
+						int down = rs.getInt(5);
+						int views = rs.getInt(6);
+						String running_time = rs.getString(7);
+						Date dates = rs.getDate(8);
+						String hashtag = rs.getString(9);
+						String url = rs.getString(10);
+						String thumbnails = rs.getString(11);
+						String category = rs.getString(12);
+						
+						vo = new MediaVO(media_id, title, channel, up, down, views, running_time, dates, hashtag, url, thumbnails, category);
+						
+
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					close();
+				}
+
+				return vo;
+			}	
+			
+			//****좋아요 누를때 비슷 영상 추천****
+			public MediaVO simmediainfoList(String media_id) {
+				MediaVO vo = null;
+				conn = getConn();
+				String sql = "select * from(select * from media where category like (select category from media where media_id = ?) order by dbms_random.random) where rownum = 1";
+				try {
+					pst = conn.prepareStatement(sql);
+					pst.setString(1, media_id);
+					rs = pst.executeQuery();
+					if (rs.next()) {
+						
+						media_id = rs.getString(1);
+						String title = rs.getString(2);
+						String channel = rs.getString(3);
+						int up = rs.getInt(4);
+						int down = rs.getInt(5);
+						int views = rs.getInt(6);
+						String running_time = rs.getString(7);
+						Date dates = rs.getDate(8);
+						String hashtag = rs.getString(9);
+						String url = rs.getString(10);
+						String thumbnails = rs.getString(11);
+						String category = rs.getString(12);
+						
+						vo = new MediaVO(media_id, title, channel, up, down, views, running_time, dates, hashtag, url, thumbnails, category);
+						
+
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					close();
+				}
+
+				return vo;
+			}	
 			
 			
 	//****DB CLOSE기능****

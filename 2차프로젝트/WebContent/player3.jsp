@@ -16,7 +16,7 @@ request.setCharacterEncoding("euc-kr");
 String media_id = request.getParameter("media_id");
 
 MediaDAO dao = new MediaDAO();
-MediaVO vo = dao.mediainfoList(media_id);
+MediaVO vo = dao.simmediainfoList(media_id);
 
 //영상 본 시간 저장
 Calendar cal = Calendar.getInstance();
@@ -142,7 +142,7 @@ function result(data){
 <br>좋아요 : ${vo.up } 싫어요 : ${vo.down }
 <br>
 <br><input type ="button" value="뒤로" onclick="location.href='/jokp/mainpage_1.jsp'">
-<input type ="button" value="다음 영상" onclick="location.href='/jokp/player.jsp?media_id=${vo.media_id}'">
+<input type ="button" value="다음 영상" onclick="location.href='/jokp/player3.jsp'">
 <hr>
 <input type="button" id="likebtn" value="좋아요">
 <input type="button" id="hatebtn" value="싫어요">

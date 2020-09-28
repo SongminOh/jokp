@@ -1,7 +1,15 @@
+<%@page import="jokp.model.UsersVO"%>
+<%@page import="jokp.model.MediaVO"%>
+<%@page import="jokp.model.MediaDAO"%>
 <%@page import="jokp.model.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+
+UserDAO dao = new UserDAO();
+UsersVO vo = dao.userinfoList("dptmf35");
+%>
 
 <!DOCTYPE HTML>
 <html>
@@ -15,10 +23,26 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$.ajax({
-  		url : "/jokp/jsonmedia",
+  		url : "/jokp/jsonuserpreference4",
   		type : "get",
   		dataType : "json",
   		success : result,
+  		error : function(){ alert("error!!"); }
+	});
+	
+	$.ajax({
+  		url : "/jokp/jsonuserpreference2",
+  		type : "get",
+  		dataType : "json",
+  		success : result2,
+  		error : function(){ alert("error!!"); }
+	});
+	
+	$.ajax({
+  		url : "/jokp/jsonuserpreference3",
+  		type : "get",
+  		dataType : "json",
+  		success : result3,
   		error : function(){ alert("error!!"); }
 	});
 	
@@ -35,6 +59,31 @@ function result(data){
 	  });
 		  $("#tiles").html(str);
 }
+
+function result2(data){
+	  var str = "";
+	  $.each(data, function(main,obj){ //object에서 요소 빼는법 obj.num
+		  str += "<article class='style"+obj.media_id+"'>";
+		  str += "<div class='image'>";
+		  str += "<a href='/jokp/재생.jsp?media_id="+obj.media_id+"'><img src='"+obj.thumbnails+"'/></a></div>";
+		  str += "<h2>"+ obj.title +"</h2>"
+		  str += "<p>"+ obj.hashtag + "</p></article>";
+	  });
+		  $("#tiles2").html(str);
+}
+
+function result3(data){
+	  var str = "";
+	  $.each(data, function(main,obj){ //object에서 요소 빼는법 obj.num
+		  str += "<article class='style"+obj.media_id+"'>";
+		  str += "<div class='image'>";
+		  str += "<a href='/jokp/재생.jsp?media_id="+obj.media_id+"'><img src='"+obj.thumbnails+"'/></a></div>";
+		  str += "<h2>"+ obj.title +"</h2>"
+		  str += "<p>"+ obj.running_time + "</p></article>";
+	  });
+		  $("#tiles3").html(str);
+}
+
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript"
@@ -180,7 +229,8 @@ function result(data){
 			<div class="inner">
 
 				<header>
-					<h1>${user_id}님의 선호 카테고리별 영상 추천</h1>
+				<c:set var="vo" value="<%=vo %>"/> 
+					<h1>${user_id}님의 선호 카테고리(${vo.preference}) 영상 추천</h1>
 				</header>
 
 				<section class="tiles" id="tiles">
@@ -189,13 +239,25 @@ function result(data){
 				</section>
 
 				<header>
-					<h1>나와 유사 직업/나이인 사람이 많이 보는 영상</h1>
+					<h1>나와 유사 직업/나이(${vo.job }/${vo.age })인 사람이 많이 보는 영상</h1>
 				</header>
 
 				<section class="tiles" id="tiles2">
 
 				</section>
 
+				<section class="tiles" id="tiles">
+					<!-- <i class="xi-angle-left"></i> -->
+					
+				</section>
+
+				<header>
+					<h1>이어볼 영상 조합 : ${vo.set_time}분 영상 재생 리스트 </h1>
+				</header>
+
+				<section class="tiles" id="tiles3">
+
+				</section>
 			
 			</div>
 		</div>

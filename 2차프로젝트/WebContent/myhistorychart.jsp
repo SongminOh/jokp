@@ -1,3 +1,13 @@
+<%@page import="jokp.model.UsersVO"%>
+<%@page import="jokp.model.UserDAO"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+
+UserDAO dao = new UserDAO();
+UsersVO vo = dao.userinfoList("dptmf35");
+%>
 <!DOCTYPE HTML>
 <!--
 	Phantom by HTML5 UP
@@ -6,7 +16,7 @@
 -->
 <html>
 
-<title>Mypage - Phantom by HTML5 UP</title>
+<title>JOKP</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -24,14 +34,14 @@
 			<!-- Nav -->
 			<nav>
 				<ul>
-					<li><a href="Index.html" class="logo"> <span
+					<li><a href="/jokp/mainpage_1.jsp" class="logo"> <span
 							class="symbol"> <img src="images/logo.png" alt="" />
 						</span>
 					</a>
 					<li>
 					<li>
 						<div>
-							<input class="query" name="query" type="text" title="ê²€ìƒ‰ì–´ ì…ë ¥"
+							<input class="query" name="query" type="text" title="°Ë»ö¾î ÀÔ·Â"
 								maxlength="50" class="input_text" tabindex="1" accesskey="s"
 								style="ime-mode: active;" autocomplete="off"
 								onclick="document.getElementById('fbm').value=1;" value="">
@@ -39,14 +49,14 @@
 					</li>
 					<li>
 						<div>
-							<button class="search_btn" type="submit" title="ê²€ìƒ‰" tabindex="3"
+							<button class="search_btn" type="submit" title="°Ë»ö" tabindex="3"
 								class="btn_submit" onclick="location.href='search.html'"
 								style="">
-								<span class="blind">ê²€ìƒ‰</span> <span class="ico_search_submit"></span>
+								<span class="blind">°Ë»ö</span> <span class="ico_search_submit"></span>
 							</button>
 						</div>
 					</li>
-					<li><a class="login"> <input type="button" value="ë¡œê·¸ì¸"
+					<li><a class="login"> <input type="button" value="·Î±×ÀÎ"
 							onclick="showPopup();" /> <span class="set"><img
 								src="images/set.png" alt="" /></span>
 					</a></li>
@@ -55,63 +65,11 @@
 			</nav>
 	</div>
 	</header>
-
-	<h1>ìš”ì¼ë³„ ì´ ì´ìš© ì¹´í…Œê³ ë¦¬ ë¶„ì„</h1>
-	<script type="text/javascript"
-		src="https://www.gstatic.com/charts/loader.js"></script>
-	<script type="text/javascript">
-		google.charts.load('current', {
-			'packages' : [ 'corechart' ]
-		});
-		google.charts.setOnLoadCallback(drawVisualization);
-
-		function drawVisualization() {
-			// Some raw data (not necessarily accurate)
-			var data = google.visualization
-					.arrayToDataTable([
-							[ 'day', 'ì• ë‹ˆë¦¬ë·°', 'ì• ë‹ˆê´‘ê³ ', 'ì˜í™”ë¦¬ë·°', 'ì˜í™”ê´‘ê³ ', 'ì˜ì–´/ì–´í•™',
-									'ì¼ì–´/ì–´í•™' ],
-							[ 'ì›”ìšœ', 165, 938, 522, 998, 450, 614.6 ],
-							[ 'í™”ìšœ', 135, 1120, 599, 1268, 288, 682 ],
-							[ 'ìˆ˜ìšœ', 157, 1167, 587, 807, 397, 623 ],
-							[ 'ëª©ìšœ', 139, 1110, 615, 968, 215, 609.4 ],
-							[ 'ê¸ˆìšœ', 136, 691, 629, 1026, 366, 569.6 ],
-							[ 'í† ìšœ', 136, 691, 629, 1026, 366, 569.6 ],
-							[ 'ì¼ìšœ', 136, 691, 629, 1026, 366, 569.6 ] ]);
-
-			var options = {
-				title : '',
-				vAxis : {
-					title : 'ì‹œê°„ '
-				},
-				hAxis : {
-					title : 'ìš”ì¼'
-				},
-				seriesType : 'bars',
-				series : {
-					5 : {
-						type : 'line'
-					}
-				}
-			};
-
-			var chart = new google.visualization.ComboChart(document
-					.getElementById('chart_div'));
-			chart.draw(data, options);
-		}
-	</script>
-
-
-	<div id="chart_div" style="width: 1300px; height: 550px;"></div>
-
-
-
-
-
-
+<c:set var="vo" value="<%=vo %>"/> 
+		<h1 align='center'>¢º¢º ${vo.name }´ÔÀÇ History ºĞ¼®¢¸¢¸</h1>
 	<table class="tg">
 
-		<h1>â— ìµœê·¼ì‹œì²­ ì˜ìƒ</h1>
+		<h1>¡Ü ÃÖ±Ù ½ÃÃ» ¿µ»ó</h1>
 		<script type="text/javascript"
 			src="https://www.gstatic.com/charts/loader.js"></script>
 		<script type="text/javascript">
@@ -157,11 +115,11 @@
 				var data = new google.visualization.DataTable();
 				data.addColumn('string', 'Topping');
 				data.addColumn('number', 'Slices');
-				data.addRows([ [ 'ë™ë¬¼', 10 ], [ 'êµìœ¡', 2 ],
-					[ 'ìš”ë¦¬', 14 ], [ 'ìŒì•…', 1 ] ]);
+				data.addRows([ [ 'µ¿¹°', 10 ], [ '±³À°', 2 ],
+					[ '¿ä¸®', 14 ], [ 'À½¾Ç', 1 ] ]);
 				// Set options for Sarah's pie chart.
 				var options = {
-					title : 'ëŒ€ë¶„ë¥˜',
+					title : '´ëºĞ·ù',
 					width : 500,
 					height : 500
 				};
@@ -179,12 +137,12 @@
 				var data = new google.visualization.DataTable();
 				data.addColumn('string', 'Topping');
 				data.addColumn('number', 'Slices');
-				data.addRows([ [ 'ê³ ì–‘ì´', 7 ], ['ê°•ì•„ì§€', 3], [ 'ê°„ë‹¨ìš”ë¦¬', 8 ],
-					[ 'ê¸¸ê±°ë¦¬', 6 ], [ 'ì¼ë³¸ì–´', 1 ], ['ì˜ì–´',1]]);
+				data.addRows([ [ '°í¾çÀÌ', 7 ], ['°­¾ÆÁö', 3], [ '°£´Ü¿ä¸®', 8 ],
+					[ '±æ°Å¸®', 6 ], [ 'ÀÏº»¾î', 1 ], ['¿µ¾î',1]]);
 
 				// Set options for Anthony's pie chart.
 				var options = {
-					title : 'ì†Œë¶„ë¥˜',
+					title : '¼ÒºĞ·ù',
 					width : 500,
 					height : 500
 				};
@@ -211,7 +169,7 @@
 		</table>
 
 
-		<h1>â— ì¢‹ì•„ìš” í•œ ì˜ìƒ</h1>
+		<h1>¡Ü ÁÁ¾Æ¿ä ÇÑ ¿µ»ó</h1>
 		<script type="text/javascript"
 			src="https://www.gstatic.com/charts/loader.js"></script>
 		<script type="text/javascript">
@@ -234,12 +192,12 @@
 				data.addColumn('string', 'Topping');
 				data.addColumn('number', 'Slices');
 				data
-						.addRows([ [ 'ì–´í•™', 1 ], [ 'ìŒì‹', 4 ],
-								[ 'ë™ë¬¼', 3 ] ]);
+						.addRows([ [ '¾îÇĞ', 1 ], [ 'À½½Ä', 4 ],
+								[ 'µ¿¹°', 3 ] ]);
 
 				// Set options for Sarah's pie chart.
 				var options = {
-					title : 'ëŒ€ë¶„ë¥˜',
+					title : '´ëºĞ·ù',
 					width : 500,
 					height : 500
 				};
@@ -258,12 +216,12 @@
 				data.addColumn('string', 'Topping');
 				data.addColumn('number', 'Slices');
 				data
-						.addRows([ [ 'ê³ ì–‘ì´', 3 ], [ 'ê°„ë‹¨ìš”ë¦¬', 2 ],
-								[ 'ê¸¸ê±°ë¦¬', 2 ], [ 'ì¼ë³¸ì–´', 1 ] ]);
+						.addRows([ [ '°í¾çÀÌ', 3 ], [ '°£´Ü¿ä¸®', 2 ],
+								[ '±æ°Å¸®', 2 ], [ 'ÀÏº»¾î', 1 ] ]);
 
 				// Set options for Anthony's pie chart.
 				var options = {
-					title : 'ì†Œë¶„ë¥˜',
+					title : '¼ÒºĞ·ù',
 					width : 500,
 					height : 500
 				};

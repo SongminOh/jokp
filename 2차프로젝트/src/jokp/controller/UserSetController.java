@@ -28,8 +28,11 @@ public class UserSetController extends HttpServlet {
 		
 		int cnt = dao.preferenceUpdate(vo);
 		cnt = dao.settimeUpdate(vo);
-		response.sendRedirect("/jokp/mainpage.jsp");
-	
+		if(preference.contains("¿µÈ­")) {
+			response.sendRedirect("/jokp/mainpage_other.jsp");	
+		}else {
+		response.sendRedirect("/jokp/mainpage_1.jsp");
+		}
 	}
 
 }

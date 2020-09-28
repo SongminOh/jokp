@@ -1,7 +1,15 @@
+<%@page import="jokp.model.UsersVO"%>
+<%@page import="jokp.model.MediaVO"%>
+<%@page import="jokp.model.MediaDAO"%>
 <%@page import="jokp.model.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+
+UserDAO dao = new UserDAO();
+UsersVO vo = dao.userinfoList("dptmf35");
+%>
 
 <!DOCTYPE HTML>
 <html>
@@ -15,15 +23,22 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$.ajax({
-  		url : "/jokp/jsonmedia",
+  		url : "/jokp/jsonhistory",
   		type : "get",
   		dataType : "json",
   		success : result,
   		error : function(){ alert("error!!"); }
 	});
 	
-});
+	$.ajax({
+  		url : "/jokp/jsonlike",
+  		type : "get",
+  		dataType : "json",
+  		success : result2,
+  		error : function(){ alert("error!!"); }
+	});
 
+});
 function result(data){
 	  var str = "";
 	  $.each(data, function(main,obj){ //object에서 요소 빼는법 obj.num
@@ -35,10 +50,22 @@ function result(data){
 	  });
 		  $("#tiles").html(str);
 }
+
+function result2(data){
+	  var str = "";
+	  $.each(data, function(main,obj){ //object에서 요소 빼는법 obj.num
+		  str += "<article class='style"+obj.media_id+"'>";
+		  str += "<div class='image'>";
+		  str += "<a href='/jokp/재생.jsp?media_id="+obj.media_id+"'><img src='"+obj.thumbnails+"'/></a></div>";
+		  str += "<h2>"+ obj.title +"</h2>"
+		  str += "<p>"+ obj.hashtag + "</p></article>";
+	  });
+		  $("#tiles2").html(str);
+}
+
+
 </script>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript"
-	src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 <style>
 .image {
 	position: relative;
@@ -125,7 +152,7 @@ function result(data){
 				<!-- Nav -->
 				<nav>
 					<ul>
-						<li><a href="main.html" class="logo"> <span class="symbol">
+						<li><a href="mainpage_1.jsp" class="logo"> <span class="symbol">
 								<img src="images/logo.png" alt="" />
 						</span>
 						</a><li>
@@ -165,7 +192,7 @@ function result(data){
 			<h2>Menu</h2>
 			<ul>
 				<li><a href="main.html">Home</a></li>
-				<li><a href="/jokp/mainpage_2.jsp">Mypage</a></li>
+				<li><a href="Mypage.html">Mypage</a></li>
 				<li><a href="/jokp/myhistorychart.jsp">History</a></li>
 
 
@@ -178,24 +205,28 @@ function result(data){
 
 		<div id="main">
 			<div class="inner">
-
+				<c:set var="vo" value="<%=vo %>"/> 
 				<header>
-					<h1>${user_id}님의 선호 카테고리별 영상 추천</h1>
+					<h1>${vo.name}님의 최근 시청 영상 리스트</h1>
 				</header>
 
 				<section class="tiles" id="tiles">
+
+				</section>
+				
+				<header>
+				
+					<h1>${vo.name}님의 좋아요 영상 리스트</h1>
+				</header>
+
+				<section class="tiles" id="tiles2">
 					<!-- <i class="xi-angle-left"></i> -->
 					
 				</section>
 
-				<header>
-					<h1>나와 유사 직업/나이인 사람이 많이 보는 영상</h1>
-				</header>
+				
 
-				<section class="tiles" id="tiles2">
-
-				</section>
-
+			
 			
 			</div>
 		</div>

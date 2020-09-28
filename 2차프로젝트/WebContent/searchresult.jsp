@@ -31,7 +31,7 @@
 				<!-- Nav -->
 				<nav>
 					<ul>
-						<li><a href="/jokp/main.html" class="logo"> <span class="symbol">
+						<li><a href="/jokp/mainpage_1.jsp" class="logo"> <span class="symbol">
 								<img src="images/logo.png" alt="" />
 						</span>
 						</a><li>
@@ -52,7 +52,7 @@
 						</div>
 							</form>
 						</li>
-						<li><a class="login"> <input type="button" value="로그인"
+						<li><a class="login"> <input type="button" value="로그아웃"
 							onclick="showPopup();" /> <span class="set"><img
 								src="images/set.png" alt="" /></span>
 						</a>

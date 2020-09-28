@@ -14,12 +14,12 @@ import com.google.gson.Gson;
 
 import jokp.model.MediaDAO;
 import jokp.model.MediaVO;
-@WebServlet("/jsonuserpreference4")
-public class JsonUserPreferenceArrayController extends HttpServlet {
+@WebServlet("/jsonuserpreference3")
+public class JsonUserPreferenceArrayController3 extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		MediaDAO dao = new MediaDAO();
-		ArrayList<MediaVO> list = dao.MyMediaListM("dptmf35");
+		ArrayList<MediaVO> list = dao.MyMediaList3("dptmf35");
 		// Json - array 변경 : Gson API이용하기!
 		
 		
